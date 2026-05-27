@@ -1,6 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 * [首页](README.md)
+* [关于我](README.md#关于我)
 * 技术笔记
   * [Modbus 知识库](Modbus.md)
   * [车载边缘计算知识](EC_on_Viechle.md)

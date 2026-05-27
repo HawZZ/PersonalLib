@@ -21,6 +21,65 @@
   <span>工作复盘</span>
 </div>
 
+## 关于我
+
+<section class="profile-panel">
+  <div class="profile-panel__intro">
+    <p class="profile-panel__eyebrow">公开版履历摘要</p>
+    <h3>物联网与智能硬件产品经理</h3>
+    <p>7年+ 智能硬件、物联网平台和 PaaS 产品经验，长期关注设备管理、连接管理、固件 OTA、边缘计算和工业协议上云。做过从 0 到 1 的产品搭建，也做过面向规模化交付的产品迭代和跨团队协作。</p>
+  </div>
+  <div class="profile-panel__metrics">
+    <div>
+      <strong>7年+</strong>
+      <span>IoT / 智能硬件产品经验</span>
+    </div>
+    <div>
+      <strong>0→1</strong>
+      <span>平台、应用和解决方案落地</span>
+    </div>
+    <div>
+      <strong>千万级</strong>
+      <span>农业物联网项目交付经验</span>
+    </div>
+  </div>
+</section>
+
+<div class="capability-grid">
+  <div>
+    <strong>产品与平台</strong>
+    <span>产品路线图、需求管理、原型设计、KPI/OKR、设备管理平台、DMP、CMP、FOTA、规则引擎。</span>
+  </div>
+  <div>
+    <strong>协议与场景</strong>
+    <span>MQTT、Modbus、LoRa、WiFi、BLE、RS485、ISO11783、智能灌溉、网关、远程监控和预测性维护。</span>
+  </div>
+  <div>
+    <strong>数据与工具</strong>
+    <span>联邦学习、数据可视化、Python、Axure、Figma、Mastergo、Jira，以及 AI 辅助脚本开发。</span>
+  </div>
+</div>
+
+<div class="career-timeline">
+  <div>
+    <span>2023 - 2026</span>
+    <strong>农业物联网与智能灌溉方向</strong>
+    <p>负责 IoT 平台、设备标准模型、数据映射、OTA、规则引擎和智能网关能力建设，推动新设备接入效率提升，并支持智能灌溉项目规模化交付。</p>
+  </div>
+  <div>
+    <span>2020 - 2023</span>
+    <strong>物联网 PaaS 与连接管理方向</strong>
+    <p>负责 DMP、CMP、FOTA、Open API、统一登录和 SSO 等产品线迭代，参与海外客户解决方案和百万美元级项目交付。</p>
+  </div>
+  <div>
+    <span>2018 - 2020</span>
+    <strong>消费级智能硬件方向</strong>
+    <p>负责智能摄像机 APP、云存储订阅、设备配网、直播回放、AI 识别和固件功能设计，完成消费级硬件应用从 0 到 1 上线。</p>
+  </div>
+</div>
+
+<p class="profile-note">公开页面已隐藏手机号、邮箱、具体地址、精确客户信息和部分商业敏感细节。教育背景保留为：德国应用技术大学硕士、国内 211 高校本科。</p>
+
 ## 知识库地图
 
 <div class="knowledge-grid">
