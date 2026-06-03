@@ -99,6 +99,10 @@
     <strong>车载边缘计算的特点</strong>
     <span>关注实时性、可靠性、多传感器融合、低功耗和车载系统集成等关键特征。</span>
   </a>
+  <a class="knowledge-card" href="#/AI_PM_Workflow">
+    <strong>AI 辅助产品经理工作流</strong>
+    <span>从页面事实、项目源码、攻防共识、交互原型到 PRD 沉淀，整理一套可复用的产品需求闭环。</span>
+  </a>
 </div>
 
 ## 长期关注
