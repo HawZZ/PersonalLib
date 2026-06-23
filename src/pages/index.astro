@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import KnowledgeMap from '../components/KnowledgeMap.astro';
 import {
   heroProfile,
-  careerSignals,
-  jdFitSignals,
+  workTraits,
+  productPrinciples,
   capabilities,
   projectPatterns,
   readingPaths
@@ -13,7 +13,7 @@ import { getCollection } from 'astro:content';
 
 const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
 ---
-<BaseLayout title="AIoT Product Portfolio - PersonalLib" description="AIoT 与智能硬件产品经理作品集，整理设备平台、消费级 IoT App、边缘智能和 AI 产品工作流。">
+<BaseLayout title="AIoT Product Portfolio - PersonalLib" description="AIoT 与智能硬件产品经理作品集，覆盖设备平台、消费级 IoT App、边缘智能和产品工作流。">
   <section class="hero-grid career-hero section-tight">
     <div class="hero-copy">
       <p class="eyebrow">{heroProfile.label}</p>
@@ -21,38 +21,38 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
       <p class="hero-lede">{heroProfile.summary}</p>
       <p class="hero-position">{heroProfile.position}</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="#career-fit">看岗位匹配</a>
-        <a class="button button-secondary" href="#project-evidence">看项目证据</a>
+        <a class="button button-primary" href="#selected-work">看项目</a>
+        <a class="button button-secondary" href="#work-style">看工作方式</a>
       </div>
     </div>
-    <aside class="hero-profile-card" aria-label="职业信号">
-      <span>Quick read</span>
-      <h2>从岗位视角看匹配度</h2>
-      <p>把真实项目经验整理成 AIoT 岗位更容易判断的职业信号。</p>
+    <aside class="hero-profile-card hero-profile-card--editorial" aria-label="产品经验摘要">
+      <span>Selected product surfaces</span>
+      <h2>四类产品，同一类难题</h2>
+      <p>设备状态复杂，团队边界复杂，现场反馈也复杂。我的工作是把这些复杂性变成下一版能交付的产品决定。</p>
       <div class="role-fit-list">
         {heroProfile.roleFit.map((role) => <b>{role}</b>)}
       </div>
     </aside>
   </section>
 
-  <section class="career-metrics" aria-label="履历摘要">
-    {careerSignals.map((item) => (
+  <section class="trait-strip" id="work-style" aria-label="工作特质">
+    {workTraits.map((item) => (
       <article>
-        <span>{item.label}</span>
-        <strong>{item.value}</strong>
+        <span>{item.title}</span>
+        <h2>{item.headline}</h2>
         <p>{item.detail}</p>
       </article>
     ))}
   </section>
 
-  <section class="section-block" id="career-fit">
-    <div class="section-heading">
-      <h2>AIoT 岗位匹配信号</h2>
-      <p>对齐消费电子与智能硬件平台岗位常见要求，每个信号都对应实际承担过的项目或方法。</p>
+  <section class="section-block principle-section">
+    <div class="section-heading section-heading--narrow">
+      <h2>产品判断</h2>
+      <p>我更关心一个能力怎么进入版本、怎么被团队理解、最后怎么被用户或现场验证。</p>
     </div>
-    <div class="fit-grid">
-      {jdFitSignals.map((item) => (
-        <article class="fit-card">
+    <div class="principle-grid">
+      {productPrinciples.map((item) => (
+        <article class="principle-card">
           <h3>{item.title}</h3>
           <p>{item.summary}</p>
           <div class="chip-list">
@@ -63,15 +63,16 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
     </div>
   </section>
 
-  <section class="section-block" id="project-evidence">
+  <section class="section-block" id="selected-work">
     <div class="section-heading section-heading--narrow">
-      <h2>项目证据</h2>
-      <p>保留项目类型、角色、负责范围和能力证明，让项目经验更容易被快速判断。</p>
+      <h2>做过的产品切面</h2>
+      <p>每个项目都牵涉多团队协作：硬件、嵌入式、云端、App、算法、测试、交付和客户现场。</p>
     </div>
-    <div class="evidence-stack">
-      {projectPatterns.map((pattern) => (
-        <article class="evidence-card">
-          <div class="evidence-card__main">
+    <div class="case-stack">
+      {projectPatterns.map((pattern, index) => (
+        <article class="case-card">
+          <div class="case-index">{String(index + 1).padStart(2, '0')}</div>
+          <div class="case-main">
             <span>{pattern.stage}</span>
             <h3>{pattern.title}</h3>
             <p>{pattern.summary}</p>
@@ -79,12 +80,15 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
               {pattern.flow.map((step) => <span>{step}</span>)}
             </div>
           </div>
-          <div class="evidence-card__side">
+          <div class="case-side">
             <strong>{pattern.role}</strong>
             <ul>
               {pattern.evidence.map((item) => <li>{item}</li>)}
             </ul>
-            <p>{pattern.jdFit}</p>
+            <p>{pattern.lesson}</p>
+            <div class="tag-row tag-row--plain">
+              {pattern.focus.map((item) => <b>{item}</b>)}
+            </div>
           </div>
         </article>
       ))}
@@ -93,10 +97,10 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
 
   <section class="section-block capability-section">
     <div class="section-heading">
-      <h2>能力画布</h2>
-      <p>从项目经验中抽象出的可迁移能力，用来解释为什么这些经历能迁移到 AIoT 平台和智能硬件岗位。</p>
+      <h2>能力沉淀</h2>
+      <p>项目做完之后，能留下来的不是一份 PRD，而是下一次还能复用的判断框架。</p>
     </div>
-    <div class="capability-grid">
+    <div class="capability-grid capability-grid--portfolio">
       {capabilities.map((item, index) => (
         <article class={`cap-card cap-card--${index + 1}`}>
           <span>{item.signal}</span>
@@ -111,11 +115,11 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
   </section>
 
   <section class="section-block atlas-resume-section">
-    <div class="atlas-resume-grid">
+    <div class="atlas-resume-grid atlas-resume-grid--editorial">
       <div>
         <div class="section-heading">
-          <h2>知识地图作为能力证据</h2>
-          <p>如果需要继续了解专业深度，可以从协议、边缘计算和产品工作流进入具体笔记。</p>
+          <h2>继续看深度</h2>
+          <p>协议、边缘计算和产品工作流，是我处理复杂 AIoT 项目时反复回到的底层材料。</p>
         </div>
         <div class="reading-grid reading-grid--compact">
           {readingPaths.map((path) => (
@@ -126,7 +130,7 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
           ))}
         </div>
       </div>
-      <div class="hero-visual hero-visual--compact">
+      <div class="hero-visual hero-visual--compact hero-visual--soft">
         <KnowledgeMap />
       </div>
     </div>
@@ -134,10 +138,10 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
 
   <section class="section-block note-section">
     <div class="section-heading">
-      <h2>深度笔记</h2>
-      <p>保留 Markdown 深度，但不让笔记目录替代职业表达。</p>
+      <h2>笔记</h2>
+      <p>这些笔记记录的是我会反复查、反复补的工程和产品问题。</p>
     </div>
-    <div class="note-grid">
+    <div class="note-grid note-grid--portfolio">
       {notes.map((note) => (
         <a class="note-card" href={`./notes/${note.slug}/`}>
           <span>{note.data.type}</span>

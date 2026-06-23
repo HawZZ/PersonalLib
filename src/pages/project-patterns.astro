@@ -2,11 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projectPatterns } from '../data/knowledge';
 ---
-<BaseLayout title="项目证据 - PersonalLib" rootPrefix="../" description="AIoT 与智能硬件产品经理项目证据，整理平台、移动端应用、边缘智能和设备上云经验。">
+<BaseLayout title="产品切面 - PersonalLib" rootPrefix="../" description="AIoT 与智能硬件产品经理项目切面，整理平台、移动端应用、边缘智能和设备上云经验。">
   <section class="page-hero">
-    <p class="eyebrow">Project Evidence</p>
-    <h1>项目证据</h1>
-    <p>把项目经历整理成岗位可判断的信息：角色、阶段、负责范围、能力证明和可迁移价值。</p>
+    <p class="eyebrow">Selected work</p>
+    <h1>产品切面</h1>
+    <p>这些项目的共同点不是行业标签，而是复杂协作：硬件有边界，软件有节奏，现场有反馈。</p>
   </section>
 
   <section class="pattern-detail pattern-detail--evidence">
@@ -26,8 +26,8 @@ import { projectPatterns } from '../data/knowledge';
             <p>{pattern.role}</p>
           </div>
           <div>
-            <strong>岗位相关性</strong>
-            <p>{pattern.jdFit}</p>
+            <strong>留下的判断</strong>
+            <p>{pattern.lesson}</p>
           </div>
         </div>
         <ul class="evidence-list">
