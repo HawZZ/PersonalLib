@@ -1,37 +1,100 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import KnowledgeMap from '../components/KnowledgeMap.astro';
-import { capabilities, projectPatterns, readingPaths } from '../data/knowledge';
+import {
+  heroProfile,
+  careerSignals,
+  jdFitSignals,
+  capabilities,
+  projectPatterns,
+  readingPaths
+} from '../data/knowledge';
 import { getCollection } from 'astro:content';
 
 const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
 ---
-<BaseLayout title="Personal Knowledge Atlas">
-  <section class="hero-grid section-tight">
+<BaseLayout title="AIoT Product Portfolio - PersonalLib" description="AIoT 与智能硬件产品经理作品集，整理设备平台、消费级 IoT App、边缘智能和 AI 产品工作流。">
+  <section class="hero-grid career-hero section-tight">
     <div class="hero-copy">
-      <p class="eyebrow">Product Knowledge Atlas</p>
-      <h1>把物联网产品经验，整理成可导航的知识地图</h1>
-      <p class="hero-lede">从设备平台、工业协议、边缘计算到 AI 产品工作流，形成一套能被快速理解和持续扩展的个人知识系统。</p>
+      <p class="eyebrow">{heroProfile.label}</p>
+      <h1>{heroProfile.title}</h1>
+      <p class="hero-lede">{heroProfile.summary}</p>
+      <p class="hero-position">{heroProfile.position}</p>
       <div class="hero-actions">
-        <a class="button button-primary" href="./atlas/">进入知识地图</a>
-        <a class="button button-secondary" href="./notes/">浏览笔记</a>
+        <a class="button button-primary" href="#career-fit">看岗位匹配</a>
+        <a class="button button-secondary" href="#project-evidence">看项目证据</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <KnowledgeMap />
+    <aside class="hero-profile-card" aria-label="职业信号">
+      <span>Quick read</span>
+      <h2>从岗位视角看匹配度</h2>
+      <p>把真实项目经验整理成 AIoT 岗位更容易判断的职业信号。</p>
+      <div class="role-fit-list">
+        {heroProfile.roleFit.map((role) => <b>{role}</b>)}
+      </div>
+    </aside>
+  </section>
+
+  <section class="career-metrics" aria-label="履历摘要">
+    {careerSignals.map((item) => (
+      <article>
+        <span>{item.label}</span>
+        <strong>{item.value}</strong>
+        <p>{item.detail}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="section-block" id="career-fit">
+    <div class="section-heading">
+      <h2>AIoT 岗位匹配信号</h2>
+      <p>对齐消费电子与智能硬件平台岗位常见要求，每个信号都对应实际承担过的项目或方法。</p>
+    </div>
+    <div class="fit-grid">
+      {jdFitSignals.map((item) => (
+        <article class="fit-card">
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <div class="chip-list">
+            {item.proof.map((proof) => <b>{proof}</b>)}
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 
-  <section class="signal-strip" aria-label="知识库定位">
-    <div><strong>能力结构</strong><span>从经历中抽象出稳定的产品判断模型。</span></div>
-    <div><strong>项目类型</strong><span>把项目经验转译成可迁移的模式库。</span></div>
-    <div><strong>知识节点</strong><span>用关系图连接协议、平台、边缘和方法。</span></div>
+  <section class="section-block" id="project-evidence">
+    <div class="section-heading section-heading--narrow">
+      <h2>项目证据</h2>
+      <p>保留项目类型、角色、负责范围和能力证明，让项目经验更容易被快速判断。</p>
+    </div>
+    <div class="evidence-stack">
+      {projectPatterns.map((pattern) => (
+        <article class="evidence-card">
+          <div class="evidence-card__main">
+            <span>{pattern.stage}</span>
+            <h3>{pattern.title}</h3>
+            <p>{pattern.summary}</p>
+            <div class="flow-row" aria-label={`${pattern.title}流程`}>
+              {pattern.flow.map((step) => <span>{step}</span>)}
+            </div>
+          </div>
+          <div class="evidence-card__side">
+            <strong>{pattern.role}</strong>
+            <ul>
+              {pattern.evidence.map((item) => <li>{item}</li>)}
+            </ul>
+            <p>{pattern.jdFit}</p>
+          </div>
+        </article>
+      ))}
+    </div>
   </section>
 
-  <section class="section-block">
+  <section class="section-block capability-section">
     <div class="section-heading">
       <h2>能力画布</h2>
-      <p>先理解能力结构，再进入具体笔记。每个能力都对应一类问题和一组可复用方法。</p>
+      <p>从项目经验中抽象出的可迁移能力，用来解释为什么这些经历能迁移到 AIoT 平台和智能硬件岗位。</p>
     </div>
     <div class="capability-grid">
       {capabilities.map((item, index) => (
@@ -47,45 +110,32 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
     </div>
   </section>
 
-  <section class="section-block pattern-section">
-    <div class="section-heading section-heading--narrow">
-      <h2>项目模式</h2>
-      <p>不按项目履历展开，而是按问题类型组织。这样更容易迁移到新的产品场景。</p>
-    </div>
-    <div class="pattern-board">
-      {projectPatterns.map((pattern) => (
-        <article class="pattern-card">
-          <div>
-            <h3>{pattern.title}</h3>
-            <p>{pattern.summary}</p>
-          </div>
-          <div class="flow-row" aria-label={`${pattern.title}流程`}>
-            {pattern.flow.map((step) => <span>{step}</span>)}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section-block reading-section">
-    <div class="section-heading">
-      <h2>推荐阅读路径</h2>
-      <p>根据不同入口切入知识库，避免从目录里逐篇寻找。</p>
-    </div>
-    <div class="reading-grid">
-      {readingPaths.map((path) => (
-        <a class="reading-card" href={path.href}>
-          <strong>{path.title}</strong>
-          <span>{path.summary}</span>
-        </a>
-      ))}
+  <section class="section-block atlas-resume-section">
+    <div class="atlas-resume-grid">
+      <div>
+        <div class="section-heading">
+          <h2>知识地图作为能力证据</h2>
+          <p>如果需要继续了解专业深度，可以从协议、边缘计算和产品工作流进入具体笔记。</p>
+        </div>
+        <div class="reading-grid reading-grid--compact">
+          {readingPaths.map((path) => (
+            <a class="reading-card" href={path.href}>
+              <strong>{path.title}</strong>
+              <span>{path.summary}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="hero-visual hero-visual--compact">
+        <KnowledgeMap />
+      </div>
     </div>
   </section>
 
   <section class="section-block note-section">
     <div class="section-heading">
-      <h2>知识节点</h2>
-      <p>每篇笔记保留 Markdown 深度，但不再让目录成为唯一入口。</p>
+      <h2>深度笔记</h2>
+      <p>保留 Markdown 深度，但不让笔记目录替代职业表达。</p>
     </div>
     <div class="note-grid">
       {notes.map((note) => (

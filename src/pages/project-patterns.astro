@@ -2,23 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projectPatterns } from '../data/knowledge';
 ---
-<BaseLayout title="项目模式 - PersonalLib" rootPrefix="../">
+<BaseLayout title="项目证据 - PersonalLib" rootPrefix="../" description="AIoT 与智能硬件产品经理项目证据，整理平台、移动端应用、边缘智能和设备上云经验。">
   <section class="page-hero">
-    <p class="eyebrow">Project Patterns</p>
-    <h1>项目模式</h1>
-    <p>把复杂项目拆成可复用的产品模式，只保留问题结构、能力边界和交付路径。</p>
+    <p class="eyebrow">Project Evidence</p>
+    <h1>项目证据</h1>
+    <p>把项目经历整理成岗位可判断的信息：角色、阶段、负责范围、能力证明和可迁移价值。</p>
   </section>
 
-  <section class="pattern-detail">
+  <section class="pattern-detail pattern-detail--evidence">
     {projectPatterns.map((pattern) => (
       <article>
         <div class="pattern-detail__head">
+          <span>{pattern.stage}</span>
           <h2>{pattern.title}</h2>
           <p>{pattern.summary}</p>
         </div>
         <div class="flow-row flow-row--large">
           {pattern.flow.map((step) => <span>{step}</span>)}
         </div>
+        <div class="project-proof-grid">
+          <div>
+            <strong>角色</strong>
+            <p>{pattern.role}</p>
+          </div>
+          <div>
+            <strong>岗位相关性</strong>
+            <p>{pattern.jdFit}</p>
+          </div>
+        </div>
+        <ul class="evidence-list">
+          {pattern.evidence.map((item) => <li>{item}</li>)}
+        </ul>
         <div class="chip-list">
           {pattern.focus.map((item) => <b>{item}</b>)}
         </div>

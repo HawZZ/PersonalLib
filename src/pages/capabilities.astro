@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { capabilities } from '../data/knowledge';
+import { capabilities, jdFitSignals } from '../data/knowledge';
 ---
-<BaseLayout title="能力地图 - PersonalLib" rootPrefix="../">
+<BaseLayout title="能力地图 - PersonalLib" rootPrefix="../" description="AIoT 产品经理能力地图，覆盖设备平台、通信协议、边缘智能和产品方法。">
   <section class="page-hero">
     <p class="eyebrow">Capabilities</p>
     <h1>能力地图</h1>
-    <p>这里把知识库的入口从文章目录转换为能力结构。每个能力都连接到一组技术主题、产品问题和交付方法。</p>
+    <p>这里把项目经历整理成可迁移能力，帮助判断我在 AIoT 平台、智能硬件应用和设备接入场景中的适配度。</p>
   </section>
 
   <section class="capability-detail">
@@ -22,5 +22,20 @@ import { capabilities } from '../data/knowledge';
         </ul>
       </article>
     ))}
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>岗位能力拆解</h2>
+      <p>这些能力不是孤立关键词，而是可以落到项目职责、协作对象和交付结果上的工作方式。</p>
+    </div>
+    <div class="fit-grid fit-grid--compact">
+      {jdFitSignals.map((item) => (
+        <article class="fit-card">
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+        </article>
+      ))}
+    </div>
   </section>
 </BaseLayout>

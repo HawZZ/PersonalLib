@@ -213,6 +213,100 @@ main {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.career-hero {
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.72fr);
+  min-height: auto;
+  align-items: start;
+  padding: 22px 0 34px;
+  margin-top: 30px;
+}
+
+.career-hero .hero-copy h1 {
+  max-width: 11em;
+  font-size: clamp(38px, 5vw, 64px);
+}
+
+.hero-position {
+  max-width: 640px;
+  margin: -16px 0 22px;
+  color: var(--ink-soft);
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.hero-profile-card {
+  position: relative;
+  min-height: 360px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(237, 245, 240, 0.86)),
+    radial-gradient(circle at 80% 16%, rgba(15, 118, 110, 0.16), transparent 34%);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-profile-card::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  bottom: -110px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.1);
+}
+
+.hero-profile-card > span,
+.evidence-card__main > span,
+.pattern-detail__head > span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.hero-profile-card h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 7em;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.hero-profile-card p {
+  position: relative;
+  z-index: 1;
+  margin: 18px 0 0;
+  color: var(--ink-soft);
+}
+
+.role-fit-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.role-fit-list b {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.66);
+  font-size: 15px;
+}
+
 .hero-visual,
 .atlas-page-visual {
   position: relative;
@@ -307,6 +401,49 @@ main {
 
 .signal-strip span {
   margin-top: 10px;
+  color: var(--ink-soft);
+}
+
+.career-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 6px 0 78px;
+}
+
+.career-metrics article,
+.fit-card,
+.evidence-card,
+.project-proof-grid > div {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--soft-shadow);
+}
+
+.career-metrics article {
+  min-height: 190px;
+  padding: 22px;
+}
+
+.career-metrics span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.career-metrics strong {
+  display: block;
+  color: var(--ink);
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.career-metrics p {
+  margin: 14px 0 0;
   color: var(--ink-soft);
 }
 
@@ -436,6 +573,120 @@ main {
   color: #edf5f2;
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.16);
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.fit-grid--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fit-card {
+  min-height: 260px;
+  padding: 24px;
+}
+
+.fit-card h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.fit-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.evidence-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.evidence-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 0.72fr);
+  gap: 22px;
+  padding: 24px;
+}
+
+.evidence-card__main h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.evidence-card__main p,
+.evidence-card__side p {
+  color: var(--ink-soft);
+}
+
+.evidence-card__main .flow-row {
+  margin-top: 22px;
+}
+
+.evidence-card__side {
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+}
+
+.evidence-card__side strong {
+  display: block;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.evidence-card__side ul,
+.evidence-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evidence-card__side li,
+.evidence-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--ink-soft);
+}
+
+.evidence-card__side li::before,
+.evidence-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.atlas-resume-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(360px, 0.72fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.hero-visual--compact,
+.hero-visual--compact .atlas-map {
+  min-height: 360px;
+}
+
+.reading-grid--compact {
+  grid-template-columns: 1fr;
 }
 
 .pattern-board {
@@ -576,6 +827,36 @@ main {
 
 .pattern-detail__head {
   max-width: 720px;
+}
+
+.pattern-detail__head span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.project-proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1fr);
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.project-proof-grid > div {
+  padding: 18px;
+}
+
+.project-proof-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-strong);
+  font-size: 13px;
+}
+
+.project-proof-grid p {
+  margin: 0;
 }
 
 .flow-row--large {
@@ -829,10 +1110,13 @@ main {
 
 @media (max-width: 1080px) {
   .hero-grid,
+  .career-hero,
   .atlas-page-grid,
   .note-layout,
   .capability-detail article,
-  .pattern-card:first-child {
+  .pattern-card:first-child,
+  .evidence-card,
+  .atlas-resume-grid {
     grid-template-columns: 1fr;
   }
 
@@ -849,7 +1133,10 @@ main {
   .capability-grid,
   .pattern-board,
   .note-grid,
-  .reading-grid {
+  .reading-grid,
+  .fit-grid,
+  .fit-grid--compact,
+  .career-metrics {
     grid-template-columns: 1fr;
   }
 
@@ -859,6 +1146,10 @@ main {
 
   .note-header {
     position: static;
+  }
+
+  .hero-profile-card {
+    min-height: auto;
   }
 }
 
@@ -908,7 +1199,9 @@ main {
   }
 
   .signal-strip,
+  .career-metrics,
   .pattern-card:first-child .flow-row,
+  .project-proof-grid,
   .capability-detail ul,
   .prose .role-grid,
   .prose .register-map,
@@ -981,9 +1274,14 @@ main {
   .site-header,
   .eyebrow,
   .button-secondary,
+  .hero-profile-card,
   .hero-visual,
   .atlas-page-visual,
   .signal-strip div,
+  .career-metrics article,
+  .fit-card,
+  .evidence-card,
+  .project-proof-grid > div,
   .cap-card,
   .pattern-card,
   .reading-card,
@@ -1010,7 +1308,8 @@ main {
 
   .chip-list b,
   .tag-row b,
-  .flow-row span {
+  .flow-row span,
+  .role-fit-list b {
     color: var(--ink);
     background: rgba(237, 245, 242, 0.08);
   }
