@@ -24,5 +24,5 @@ npm run build
 - `src/pages/`：Astro 页面
 - `src/content/notes/`：Markdown 笔记
 - `src/data/knowledge.ts`：能力、项目模式、知识地图数据
-- `src/styles/global.css`：视觉系统
+- `public/styles/global.css`：视觉系统，作为静态资源复制到 `docs/styles/`
 - `docs/`：构建产物

@@ -1,6 +1,4 @@
 ---
-import '../styles/global.css';
-
 const {
   title = 'Personal Knowledge Atlas',
   description = '产品知识地图，整理物联网平台、边缘智能、工业协议和 AI 产品工作流。',
@@ -24,7 +22,7 @@ const nav = [
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0f766e" />
     <title>{title}</title>
-    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href={toRoot('styles/global.css')} />
   </head>
   <body>
     <div class="page-shell">
