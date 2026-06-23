@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({ params: { slug: note.slug }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+<BaseLayout title={`${note.data.title} - PersonalLib`} description={note.data.summary} rootPrefix="../../">
+  <article class="note-layout">
+    <header class="note-header">
+      <a href="../" class="back-link">返回笔记</a>
+      <span>{note.data.type}</span>
+      <h1>{note.data.title}</h1>
+      <p>{note.data.summary}</p>
+      <div class="tag-row">
+        {note.data.tags.map((tag) => <b>{tag}</b>)}
+      </div>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

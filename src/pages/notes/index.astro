@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="笔记 - PersonalLib" rootPrefix="../">
+  <section class="page-hero">
+    <p class="eyebrow">Notes</p>
+    <h1>深度笔记</h1>
+    <p>笔记保留 Markdown 深度，但通过类型、标签和关联关系进入知识地图。</p>
+  </section>
+
+  <section class="note-grid note-grid--listing">
+    {notes.map((note) => (
+      <a class="note-card" href={`./${note.slug}/`}>
+        <span>{note.data.type}</span>
+        <h2>{note.data.title}</h2>
+        <p>{note.data.summary}</p>
+        <div class="tag-row">
+          {note.data.tags.map((tag) => <b>{tag}</b>)}
+        </div>
+      </a>
+    ))}
+  </section>
+</BaseLayout>

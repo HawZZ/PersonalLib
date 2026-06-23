@@ -1,18 +1,28 @@
 # PersonalLib
 
-HawZZ 的个人主页与知识库。
+HawZZ 的个人知识库与 GitHub Pages 站点。
 
-- 在线访问：https://hawzz.github.io/PersonalLib/
-- 发布来源：`main` 分支的 `docs` 目录
-- 站点框架：Docsify + GitHub Pages
+当前分支是 Astro 版本预览：把原先的 Docsify 文档站改造成更直观的 Personal Knowledge Atlas。
+
+## 本地预览
+
+```bash
+npm install
+npm run dev
+```
+
+## 构建
+
+```bash
+npm run build
+```
+
+构建产物输出到 `docs/`，用于 GitHub Pages 发布。
 
 ## 内容结构
 
-- `docs/README.md`：个人主页与知识库入口
-- `docs/_sidebar.md`：左侧导航
-- `docs/index.html`：Docsify 站点配置
-- `docs/*.md`：知识库文章
-
-## 更新方式
-
-新增文章时，把 Markdown 文件放到 `docs/` 目录，并在 `docs/_sidebar.md` 中加入入口。提交并推送到 `main` 后，GitHub Pages 会自动发布。
+- `src/pages/`：Astro 页面
+- `src/content/notes/`：Markdown 笔记
+- `src/data/knowledge.ts`：能力、项目模式、知识地图数据
+- `src/styles/global.css`：视觉系统
+- `docs/`：构建产物

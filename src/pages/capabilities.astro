@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { capabilities } from '../data/knowledge';
+---
+<BaseLayout title="能力地图 - PersonalLib" rootPrefix="../">
+  <section class="page-hero">
+    <p class="eyebrow">Capabilities</p>
+    <h1>能力地图</h1>
+    <p>这里把知识库的入口从文章目录转换为能力结构。每个能力都连接到一组技术主题、产品问题和交付方法。</p>
+  </section>
+
+  <section class="capability-detail">
+    {capabilities.map((item) => (
+      <article>
+        <div>
+          <span>{item.signal}</span>
+          <h2>{item.title}</h2>
+          <p>{item.summary}</p>
+        </div>
+        <ul>
+          {item.facets.map((facet) => <li>{facet}</li>)}
+        </ul>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

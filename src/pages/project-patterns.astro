@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projectPatterns } from '../data/knowledge';
+---
+<BaseLayout title="项目模式 - PersonalLib" rootPrefix="../">
+  <section class="page-hero">
+    <p class="eyebrow">Project Patterns</p>
+    <h1>项目模式</h1>
+    <p>把复杂项目拆成可复用的产品模式，只保留问题结构、能力边界和交付路径。</p>
+  </section>
+
+  <section class="pattern-detail">
+    {projectPatterns.map((pattern) => (
+      <article>
+        <div class="pattern-detail__head">
+          <h2>{pattern.title}</h2>
+          <p>{pattern.summary}</p>
+        </div>
+        <div class="flow-row flow-row--large">
+          {pattern.flow.map((step) => <span>{step}</span>)}
+        </div>
+        <div class="chip-list">
+          {pattern.focus.map((item) => <b>{item}</b>)}
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

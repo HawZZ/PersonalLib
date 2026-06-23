@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KnowledgeMap from '../components/KnowledgeMap.astro';
+import { capabilities, projectPatterns, readingPaths } from '../data/knowledge';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Personal Knowledge Atlas">
+  <section class="hero-grid section-tight">
+    <div class="hero-copy">
+      <p class="eyebrow">Product Knowledge Atlas</p>
+      <h1>把物联网产品经验，整理成可导航的知识地图</h1>
+      <p class="hero-lede">从设备平台、工业协议、边缘计算到 AI 产品工作流，形成一套能被快速理解和持续扩展的个人知识系统。</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="./atlas/">进入知识地图</a>
+        <a class="button button-secondary" href="./notes/">浏览笔记</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <KnowledgeMap />
+    </div>
+  </section>
+
+  <section class="signal-strip" aria-label="知识库定位">
+    <div><strong>能力结构</strong><span>从经历中抽象出稳定的产品判断模型。</span></div>
+    <div><strong>项目类型</strong><span>把项目经验转译成可迁移的模式库。</span></div>
+    <div><strong>知识节点</strong><span>用关系图连接协议、平台、边缘和方法。</span></div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>能力画布</h2>
+      <p>先理解能力结构，再进入具体笔记。每个能力都对应一类问题和一组可复用方法。</p>
+    </div>
+    <div class="capability-grid">
+      {capabilities.map((item, index) => (
+        <article class={`cap-card cap-card--${index + 1}`}>
+          <span>{item.signal}</span>
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <div class="chip-list">
+            {item.facets.map((facet) => <b>{facet}</b>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block pattern-section">
+    <div class="section-heading section-heading--narrow">
+      <h2>项目模式</h2>
+      <p>不按项目履历展开，而是按问题类型组织。这样更容易迁移到新的产品场景。</p>
+    </div>
+    <div class="pattern-board">
+      {projectPatterns.map((pattern) => (
+        <article class="pattern-card">
+          <div>
+            <h3>{pattern.title}</h3>
+            <p>{pattern.summary}</p>
+          </div>
+          <div class="flow-row" aria-label={`${pattern.title}流程`}>
+            {pattern.flow.map((step) => <span>{step}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block reading-section">
+    <div class="section-heading">
+      <h2>推荐阅读路径</h2>
+      <p>根据不同入口切入知识库，避免从目录里逐篇寻找。</p>
+    </div>
+    <div class="reading-grid">
+      {readingPaths.map((path) => (
+        <a class="reading-card" href={path.href}>
+          <strong>{path.title}</strong>
+          <span>{path.summary}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block note-section">
+    <div class="section-heading">
+      <h2>知识节点</h2>
+      <p>每篇笔记保留 Markdown 深度，但不再让目录成为唯一入口。</p>
+    </div>
+    <div class="note-grid">
+      {notes.map((note) => (
+        <a class="note-card" href={`./notes/${note.slug}/`}>
+          <span>{note.data.type}</span>
+          <h3>{note.data.title}</h3>
+          <p>{note.data.summary}</p>
+          <div class="tag-row">
+            {note.data.tags.slice(0, 3).map((tag) => <b>{tag}</b>)}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

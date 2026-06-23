@@ -1,5 +1,0 @@
-* [首页](README.md)
-* [能力画布](README.md#能力画布)
-* [产品方法](README.md#产品方法)
-* [知识地图](README.md#知识地图)
-* [GitHub](https://github.com/HawZZ/PersonalLib)
