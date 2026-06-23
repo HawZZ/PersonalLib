@@ -1,4 +1,19 @@
-车载边缘计算（Vehicle Edge Computing）是将边缘计算应用于汽车系统中的一种架构，旨在通过在车载计算平台上处理和分析数据，减少对云端的依赖，并提高实时性、可靠性和效率。车载边缘计算能够支持自动驾驶、车联网（V2X）等先进技术，帮助车辆在复杂的环境中作出即时决策。以下是车载边缘计算的几个主要特点：
+# 车载边缘计算的特点
+
+车载边缘计算（Vehicle Edge Computing）是将边缘计算应用于汽车系统中的一种架构，旨在通过车载计算平台处理和分析数据，减少对云端的依赖，并提高实时性、可靠性和效率。
+
+<section class="attribute-wheel">
+  <div><strong>低延迟</strong><span>毫秒级响应</span></div>
+  <div><strong>高带宽</strong><span>本地过滤</span></div>
+  <div><strong>本地决策</strong><span>控制闭环</span></div>
+  <div><strong>高可靠</strong><span>弱网可用</span></div>
+  <div><strong>多节点协同</strong><span>车路云联动</span></div>
+  <div><strong>隐私安全</strong><span>数据少出车</span></div>
+  <div><strong>多传感融合</strong><span>环境感知</span></div>
+  <div><strong>能源效率</strong><span>算力与功耗平衡</span></div>
+</section>
+
+以下是车载边缘计算的几个主要特点：
 
 ### 1. **低延迟与实时性**
    - **特点**：车载边缘计算将数据处理和决策推向车载计算平台，减少了数据传输的距离和时间，从而实现低延迟和实时响应。尤其对于自动驾驶、碰撞避免、障碍物检测等场景，延迟必须降到最小，以确保系统能够在毫秒级别做出决策，保障行车安全。

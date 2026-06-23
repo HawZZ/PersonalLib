@@ -650,6 +650,126 @@ a:hover {
   line-height: 1.7;
 }
 
+.case-board {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0 42px;
+}
+
+.case-card {
+  padding: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+}
+
+.case-card--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+  gap: 22px;
+  align-items: center;
+}
+
+.case-card span,
+.case-card > span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--theme-color);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.case-card h3 {
+  margin: 0 0 10px;
+}
+
+.case-card p {
+  margin: 0;
+}
+
+.case-card dl {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.case-card dl div {
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(15, 118, 110, 0.07);
+}
+
+.case-card dt {
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.case-card dd {
+  margin: 4px 0 0;
+  color: var(--ink-soft);
+}
+
+.case-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(79, 70, 229, 0.08));
+}
+
+.case-flow strong {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+  font-size: 14px;
+}
+
+.case-flow i,
+.workflow-rail i,
+.protocol-stack i,
+.architecture-map i,
+.edge-loop i {
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--theme-color), var(--accent-purple));
+}
+
+.skill-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 42px;
+}
+
+.skill-map div {
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.skill-map strong,
+.skill-map span {
+  display: block;
+}
+
+.skill-map strong {
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.skill-map span {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
 .reading-path {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -763,10 +883,6 @@ a:hover {
   --card-accent: linear-gradient(90deg, #0f766e, #0891b2);
 }
 
-.knowledge-card--method {
-  --card-accent: linear-gradient(90deg, #4f46e5, #0f766e);
-}
-
 .focus-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -792,6 +908,190 @@ a:hover {
   margin: 0;
   font-size: 15px;
   line-height: 1.72;
+}
+
+.knowledge-visual,
+.workflow-rail,
+.protocol-stack,
+.architecture-map,
+.edge-loop {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  margin: 24px 0 34px;
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.knowledge-visual > div,
+.workflow-rail > div,
+.protocol-stack > div,
+.architecture-map > div,
+.edge-loop > div {
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(79, 70, 229, 0.06));
+}
+
+.knowledge-visual span,
+.workflow-rail span,
+.protocol-stack span,
+.architecture-map span,
+.edge-loop span {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: var(--theme-color);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.knowledge-visual strong,
+.workflow-rail strong,
+.protocol-stack strong,
+.architecture-map strong,
+.edge-loop strong {
+  display: block;
+  color: var(--ink);
+  line-height: 1.42;
+}
+
+.knowledge-visual small,
+.workflow-rail small,
+.architecture-map small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.schema-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1.2fr);
+  gap: 18px;
+  align-items: start;
+  margin: 24px 0 34px;
+  padding: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+}
+
+.schema-panel h3 {
+  margin-top: 0;
+}
+
+.schema-panel pre {
+  margin: 0;
+}
+
+.role-grid,
+.stage-board,
+.register-map,
+.scenario-grid,
+.attribute-wheel {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0 34px;
+}
+
+.role-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stage-board {
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.register-map,
+.scenario-grid,
+.attribute-wheel {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.role-grid div,
+.stage-board div,
+.register-map div,
+.scenario-grid div,
+.attribute-wheel div {
+  padding: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.role-grid span,
+.stage-board b,
+.register-map b {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: var(--theme-color);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.role-grid strong,
+.stage-board strong,
+.register-map strong,
+.scenario-grid strong,
+.attribute-wheel strong {
+  display: block;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.role-grid p,
+.stage-board span,
+.register-map span,
+.scenario-grid span,
+.attribute-wheel span {
+  display: block;
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.frame-diagram {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 30px;
+}
+
+.frame-diagram div {
+  display: grid;
+  grid-template-columns: 120px repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  align-items: center;
+}
+
+.frame-diagram span,
+.frame-diagram strong {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.frame-diagram span {
+  color: var(--theme-color);
+  background: rgba(15, 118, 110, 0.1);
+  font-weight: 850;
+}
+
+.frame-diagram strong {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+  font-size: 14px;
 }
 
 .anchor span {
@@ -849,12 +1149,44 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
+  .case-card--wide,
+  .schema-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-map,
+  .role-grid,
+  .register-map,
+  .scenario-grid,
+  .attribute-wheel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .knowledge-visual,
+  .workflow-rail,
+  .protocol-stack,
+  .architecture-map,
+  .edge-loop {
+    flex-direction: column;
+  }
+
+  .case-flow i,
+  .workflow-rail i,
+  .protocol-stack i,
+  .architecture-map i,
+  .edge-loop i {
+    width: 2px;
+    height: 18px;
+    margin-left: 18px;
+  }
+
   .reading-path {
     grid-template-columns: 1fr;
   }
 
   .profile-panel,
-  .capability-grid {
+  .capability-grid,
+  .case-board {
     grid-template-columns: 1fr;
   }
 
@@ -949,6 +1281,18 @@ a:hover {
   }
 
   .knowledge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-map,
+  .role-grid,
+  .register-map,
+  .scenario-grid,
+  .attribute-wheel {
+    grid-template-columns: 1fr;
+  }
+
+  .frame-diagram div {
     grid-template-columns: 1fr;
   }
 
@@ -1075,6 +1419,25 @@ a:hover {
   .career-timeline > div,
   .profile-note,
   .knowledge-card,
+  .case-card,
+  .skill-map div,
+  .knowledge-visual,
+  .knowledge-visual > div,
+  .workflow-rail,
+  .workflow-rail > div,
+  .protocol-stack,
+  .protocol-stack > div,
+  .architecture-map,
+  .architecture-map > div,
+  .edge-loop,
+  .edge-loop > div,
+  .schema-panel,
+  .role-grid div,
+  .stage-board div,
+  .register-map div,
+  .scenario-grid div,
+  .attribute-wheel div,
+  .frame-diagram strong,
   .reading-path a,
   .focus-list > div {
     background: rgba(17, 24, 39, 0.86);

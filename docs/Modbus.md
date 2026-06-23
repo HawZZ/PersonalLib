@@ -4,6 +4,28 @@ Modbus 是一种面向工业设备通信的应用层协议，最常见于 PLC、
 
 这篇笔记按工程落地视角整理：先理解基本原理，再看数据帧、地址字典、执行逻辑、RTU/TCP 应用方式，最后总结常见解决方案。
 
+<section class="knowledge-visual protocol-stack">
+  <div>
+    <span>应用层对象</span>
+    <strong>Coil / Discrete Input / Input Register / Holding Register</strong>
+  </div>
+  <i></i>
+  <div>
+    <span>PDU</span>
+    <strong>Function Code + Data</strong>
+  </div>
+  <i></i>
+  <div>
+    <span>ADU</span>
+    <strong>RTU: Address + PDU + CRC / TCP: MBAP + PDU</strong>
+  </div>
+  <i></i>
+  <div>
+    <span>工程落地</span>
+    <strong>地址换算 / 字节序 / 轮询策略 / 异常处理</strong>
+  </div>
+</section>
+
 ## 1. Modbus 基本原理
 
 ### 1.1 通信模型
@@ -34,6 +56,29 @@ ADU = Address / Header + PDU + Error Check
 ### 1.3 数据模型
 
 Modbus 把设备数据抽象成四类对象。
+
+<section class="register-map">
+  <div>
+    <b>0xxxx</b>
+    <strong>Coil</strong>
+    <span>1 bit，读写，控制量或开关状态。</span>
+  </div>
+  <div>
+    <b>1xxxx</b>
+    <strong>Discrete Input</strong>
+    <span>1 bit，只读，离散输入状态。</span>
+  </div>
+  <div>
+    <b>3xxxx</b>
+    <strong>Input Register</strong>
+    <span>16 bit，只读，采样值或测量值。</span>
+  </div>
+  <div>
+    <b>4xxxx</b>
+    <strong>Holding Register</strong>
+    <span>16 bit，读写，配置、状态字或控制参数。</span>
+  </div>
+</section>
 
 | 数据区 | 传统地址前缀 | 访问类型 | 单位 | 常用功能码 |
 | --- | --- | --- | --- | --- |
@@ -87,6 +132,23 @@ Modbus 把设备数据抽象成四类对象。
 ### 2.1 Modbus 基本帧
 
 Modbus 的通用逻辑可以理解为：
+
+<section class="frame-diagram">
+  <div>
+    <span>Client 请求</span>
+    <strong>Slave / Unit</strong>
+    <strong>Function Code</strong>
+    <strong>Address</strong>
+    <strong>Quantity / Value</strong>
+  </div>
+  <div>
+    <span>Server 响应</span>
+    <strong>Function Code</strong>
+    <strong>Byte Count</strong>
+    <strong>Data</strong>
+    <strong>Exception</strong>
+  </div>
+</section>
 
 ```text
 请求：读/写哪个设备、哪个数据区、从哪个地址开始、读/写多少数据

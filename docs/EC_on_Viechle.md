@@ -4,6 +4,26 @@
 
 这篇笔记的目标不是替代算法工程师或系统架构师，而是帮助产品经理理解：车载边缘计算为什么存在、服务哪些场景、如何拆需求、如何定义指标、如何设计产品路线图，以及在跨团队协作时该问哪些关键问题。
 
+<section class="knowledge-visual architecture-map">
+  <div>
+    <span>车端</span>
+    <strong>传感器 / ECU / 网关 / 域控制器</strong>
+    <small>实时感知、本地规则、缓存、控制</small>
+  </div>
+  <i></i>
+  <div>
+    <span>路侧</span>
+    <strong>RSU / 边缘服务器 / 信号控制器</strong>
+    <small>协同感知、区域决策、低延迟分发</small>
+  </div>
+  <i></i>
+  <div>
+    <span>云端</span>
+    <strong>数据平台 / OTA / 训练 / 运营</strong>
+    <small>全局分析、模型更新、车队管理</small>
+  </div>
+</section>
+
 ## 1. 产品经理为什么要学习车载边缘计算
 
 产品经理学习车载边缘计算，核心不是掌握所有底层算法，而是建立产品判断能力。
@@ -57,6 +77,14 @@
 相关基础概念可参考：[边缘计算基本概念](ECDef.md) 和 [车载边缘计算的特点](VECAttr.md)。
 
 ## 3. 典型业务场景
+
+<section class="scenario-grid">
+  <div><strong>智能驾驶</strong><span>毫秒级响应、误报漏报、接管逻辑。</span></div>
+  <div><strong>V2X</strong><span>车路协同、弱网策略、可信身份。</span></div>
+  <div><strong>车队运营</strong><span>成本、效率、告警闭环、远程诊断。</span></div>
+  <div><strong>车载网关</strong><span>CAN / LIN / Ethernet 数据采集与协议转换。</span></div>
+  <div><strong>智能座舱</strong><span>本地推理、隐私、OTA、多人权限。</span></div>
+</section>
 
 ### 3.1 智能驾驶与辅助驾驶
 

@@ -80,6 +80,66 @@
 
 <p class="profile-note">公开页面已隐藏手机号、邮箱、具体地址、精确客户信息和部分商业敏感细节。教育背景保留为：德国应用技术大学硕士、国内 211 高校本科。</p>
 
+## 项目案例
+
+<section class="case-board">
+  <article class="case-card case-card--wide">
+    <div>
+      <span>IoT Platform</span>
+      <h3>农业物联网与智能灌溉平台</h3>
+      <p>围绕设备标准模型、数据映射、OTA、规则引擎和智能网关能力建设，支持农业物联网项目规模化交付。</p>
+    </div>
+    <div class="case-flow">
+      <strong>设备接入</strong>
+      <i></i>
+      <strong>数据建模</strong>
+      <i></i>
+      <strong>规则联动</strong>
+      <i></i>
+      <strong>灌溉闭环</strong>
+    </div>
+  </article>
+  <article class="case-card">
+    <span>PaaS / Connectivity</span>
+    <h3>连接管理与设备平台</h3>
+    <p>负责 DMP、CMP、FOTA、Open API、统一登录和 SSO 等能力迭代，支撑海外客户解决方案。</p>
+    <dl>
+      <div><dt>核心对象</dt><dd>设备、SIM、固件、账号、API</dd></div>
+      <div><dt>交付关注</dt><dd>权限、可观测、版本、客户集成</dd></div>
+    </dl>
+  </article>
+  <article class="case-card">
+    <span>Consumer Device</span>
+    <h3>消费级智能摄像机应用</h3>
+    <p>覆盖配网、直播、回放、云存储订阅、AI 识别和固件功能设计，完成从 0 到 1 上线。</p>
+    <dl>
+      <div><dt>用户路径</dt><dd>配网 → 预览 → 回放 → 订阅</dd></div>
+      <div><dt>体验重点</dt><dd>稳定连接、低学习成本、异常提示</dd></div>
+    </dl>
+  </article>
+</section>
+
+## 能力地图
+
+<section class="skill-map">
+  <div>
+    <strong>需求判断</strong>
+    <span>场景拆解、用户路径、范围边界、优先级。</span>
+  </div>
+  <div>
+    <strong>平台抽象</strong>
+    <span>设备模型、数据模型、权限、配置、规则、API。</span>
+  </div>
+  <div>
+    <strong>交付协同</strong>
+    <span>PRD、原型、研发评审、测试验收、上线回写。</span>
+  </div>
+  <div>
+    <strong>技术沟通</strong>
+    <span>协议、网关、OTA、边缘计算、数据链路。</span>
+  </div>
+</section>
+
 ## 推荐阅读路径
 
 <div class="reading-path">
@@ -91,9 +151,9 @@
     <strong>技术主题路径</strong>
     <span>从边缘计算概念进入车载场景，再延展到 V2X 和系统特征。</span>
   </a>
-  <a href="#/Knowledge_Base_Design">
-    <strong>知识库维护路径</strong>
-    <span>理解这个站点如何组织资料、控制信息层级，并避免变成资料堆。</span>
+  <a href="#/Modbus">
+    <strong>工程协议路径</strong>
+    <span>从 Modbus 数据区、帧结构、地址换算和异常码进入工业通信。</span>
   </a>
 </div>
 
@@ -103,10 +163,6 @@
   <a class="knowledge-card knowledge-card--workflow" href="#/AI_PM_Workflow">
     <strong>AI 辅助产品经理工作流</strong>
     <span>从页面事实、项目源码、攻防共识、交互原型到 PRD 沉淀，整理一套可复用的产品需求闭环。</span>
-  </a>
-  <a class="knowledge-card knowledge-card--method" href="#/Knowledge_Base_Design">
-    <strong>知识库设计原则</strong>
-    <span>用清晰分组、直接命名、稳定链接和克制表达，让个人知识库更像工作台而不是资料堆。</span>
   </a>
   <a class="knowledge-card knowledge-card--edge" href="#/EC_on_Viechle">
     <strong>车载边缘计算知识</strong>
