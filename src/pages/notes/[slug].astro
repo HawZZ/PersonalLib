@@ -8,7 +8,8 @@ export async function getStaticPaths() {
 }
 
 const { note } = Astro.props;
-const { Content } = await render(note);
+const { Content, headings } = await render(note);
+const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 4);
 ---
 <BaseLayout title={`${note.data.title} - PersonalLib`} description={note.data.summary} rootPrefix="../../">
   <article class="note-layout">
@@ -21,6 +22,18 @@ const { Content } = await render(note);
         {note.data.tags.map((tag) => <b>{tag}</b>)}
       </div>
     </header>
+    {tocItems.length > 0 && (
+      <nav class="note-toc" aria-label="本文目录">
+        <strong>目录</strong>
+        <ol>
+          {tocItems.map((heading) => (
+            <li class={`toc-depth-${heading.depth}`}>
+              <a href={`#${heading.slug}`}>{heading.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
     <div class="prose">
       <Content />
     </div>

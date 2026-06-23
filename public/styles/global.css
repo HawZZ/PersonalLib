@@ -26,7 +26,7 @@
 html {
   min-width: 320px;
   background: var(--paper);
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -1089,7 +1089,8 @@ main {
 
 .note-layout {
   display: grid;
-  grid-template-columns: minmax(260px, 0.36fr) minmax(0, 0.82fr);
+  grid-template-columns: minmax(230px, 0.32fr) minmax(0, 0.82fr) minmax(180px, 0.24fr);
+  grid-template-areas: "header content toc";
   gap: 42px;
   align-items: start;
   padding: 82px 0 96px;
@@ -1098,6 +1099,7 @@ main {
 .note-header {
   position: sticky;
   top: 110px;
+  grid-area: header;
   padding: 24px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1122,7 +1124,56 @@ main {
   text-decoration: none;
 }
 
+.note-toc {
+  position: sticky;
+  top: 110px;
+  grid-area: toc;
+  max-height: calc(100dvh - 192px);
+  padding: 18px 0 18px 18px;
+  border-left: 1px solid var(--line-strong);
+  overflow: auto;
+}
+
+.note-toc strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.note-toc ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.note-toc a {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.42;
+  text-decoration: none;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.note-toc a:hover,
+.note-toc a:focus-visible {
+  color: var(--accent-strong);
+  transform: translateX(2px);
+}
+
+.toc-depth-3 {
+  padding-left: 12px;
+}
+
+.toc-depth-4 {
+  padding-left: 24px;
+}
+
 .prose {
+  grid-area: content;
   min-width: 0;
   color: var(--ink-soft);
 }
@@ -1133,6 +1184,7 @@ main {
 .prose h4 {
   color: var(--ink);
   letter-spacing: -0.03em;
+  scroll-margin-top: 118px;
   text-wrap: pretty;
 }
 
@@ -1320,6 +1372,13 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .note-layout {
+    grid-template-areas:
+      "header"
+      "toc"
+      "content";
+  }
+
   .hero-grid {
     min-height: auto;
   }
@@ -1347,8 +1406,17 @@ main {
     min-height: 360px;
   }
 
-  .note-header {
+  .note-header,
+  .note-toc {
     position: static;
+  }
+
+  .note-toc {
+    max-height: none;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(251, 252, 248, 0.72);
   }
 
   .hero-profile-card {
@@ -1515,6 +1583,7 @@ main {
   .pattern-detail article,
   .atlas-node-list article,
   .note-header,
+  .note-toc,
   .prose .knowledge-visual,
   .prose .workflow-rail,
   .prose .protocol-stack,
