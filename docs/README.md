@@ -1,8 +1,8 @@
-<section class="atlas-hero public-home">
+<section class="atlas-hero home-page">
   <div class="atlas-hero__copy">
-    <p class="hero-label">Public Knowledge Atlas</p>
+    <p class="hero-label">Product Knowledge Atlas</p>
     <h1>把物联网产品经验，沉成可复用的知识地图</h1>
-    <p class="hero-lede">面向设备平台、边缘智能、工业协议和 AI 产品工作流的公开版知识库。</p>
+    <p class="hero-lede">面向设备平台、边缘智能、工业协议和 AI 产品工作流的长期知识库。</p>
     <div class="hero-actions">
       <a class="home-action home-action--primary" href="#/README?id=知识地图">看知识地图</a>
       <a class="home-action home-action--secondary" href="#/AI_PM_Workflow">读产品工作流</a>
@@ -46,11 +46,11 @@
   </div>
 </section>
 
-<section class="profile-signal" aria-label="公开版履历摘要">
+<section class="profile-signal" aria-label="能力摘要">
   <div class="signal-copy">
-    <p class="section-kicker">Profile, redacted for public web</p>
-    <h2>一个端边云产品经理的公开画像</h2>
-    <p>我长期处理智能硬件、物联网平台和 PaaS 产品中的复杂协作问题。公开页面只保留能力结构和项目类型，不展示手机号、邮箱、具体雇主、客户、地址或精确商业数据。</p>
+    <p class="section-kicker">Product operating system</p>
+    <h2>一个端边云产品经理的知识结构</h2>
+    <p>长期处理智能硬件、物联网平台和 PaaS 产品中的复杂协作问题，关注设备接入、平台抽象、边缘自治、AI 辅助决策和交付闭环。</p>
   </div>
   <div class="signal-metrics" aria-label="能力信号">
     <div><strong>7年+</strong><span>智能硬件与 IoT 产品经验</span></div>
@@ -62,15 +62,15 @@
 
 <section class="system-strip" aria-label="知识库定位">
   <div>
-    <strong>不是简历复刻</strong>
-    <span>把经历抽象为可公开传播的能力图谱。</span>
+    <strong>能力图谱</strong>
+    <span>把项目经验抽象成可迁移的产品判断模型。</span>
   </div>
   <div>
-    <strong>不是资料堆叠</strong>
-    <span>把协议、边缘计算和产品方法串成路径。</span>
+    <strong>技术路径</strong>
+    <span>把协议、边缘计算和平台能力串成学习路径。</span>
   </div>
   <div>
-    <strong>不是纯文本 Wiki</strong>
+    <strong>表达系统</strong>
     <span>用流程、模型、图卡和案例结构降低阅读成本。</span>
   </div>
 </section>
@@ -152,7 +152,7 @@
     <div>
       <p class="section-kicker">IoT Platform</p>
       <h3>农业物联网平台和智能灌溉闭环</h3>
-      <p>公开表达为设备接入、数据模型、边缘网关和规则联动的产品模式，不展示具体雇主、客户和合同信息。</p>
+      <p>设备接入、数据模型、边缘网关和规则联动组成一条完整闭环，适合沉淀为平台能力和现场交付模板。</p>
     </div>
     <div class="case-diagram" aria-label="智能灌溉产品闭环">
       <span>传感</span><span>网关</span><span>模型</span><span>规则</span><span>执行</span>
@@ -207,8 +207,8 @@
 
 <section class="focus-banner">
   <div>
-    <p class="section-kicker">What this site is for</p>
-    <h2>让经历变成可讨论、可转发、可继续生长的知识资产</h2>
+    <p class="section-kicker">Knowledge assets</p>
+    <h2>让经验变成可讨论、可转发、可继续生长的知识资产</h2>
   </div>
   <div class="focus-cards">
     <span>复杂需求拆解</span>
@@ -218,8 +218,6 @@
     <span>AI 辅助 PM</span>
   </div>
 </section>
-
-<p class="privacy-note">隐私处理：本页仅保留公开展示需要的能力结构。已避开简历中的电话、邮箱、精确地址、具体雇主名称、客户名称和内部商业细节。</p>
 
 ## 相关链接
 
