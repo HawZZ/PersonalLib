@@ -19,16 +19,13 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
       <p class="eyebrow">{heroProfile.label}</p>
       <h1>{heroProfile.title}</h1>
       <p class="hero-lede">{heroProfile.summary}</p>
-      <p class="hero-position">{heroProfile.position}</p>
       <div class="hero-actions">
         <a class="button button-primary" href="#selected-work">看项目</a>
         <a class="button button-secondary" href="#work-style">看工作方式</a>
       </div>
     </div>
     <aside class="hero-profile-card hero-profile-card--editorial" aria-label="产品经验摘要">
-      <span>Selected product surfaces</span>
-      <h2>四类产品，同一类难题</h2>
-      <p>设备状态复杂，团队边界复杂，现场反馈也复杂。我的工作是把这些复杂性变成下一版能交付的产品决定。</p>
+      <span>Product surfaces</span>
       <div class="role-fit-list">
         {heroProfile.roleFit.map((role) => <b>{role}</b>)}
       </div>
@@ -66,12 +63,11 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
   <section class="section-block" id="selected-work">
     <div class="section-heading section-heading--narrow">
       <h2>做过的产品切面</h2>
-      <p>每个项目都牵涉多团队协作：硬件、嵌入式、云端、App、算法、测试、交付和客户现场。</p>
+      <p>这些项目都不是单点功能。硬件、嵌入式、云端、App、算法、测试和交付都要一起动。</p>
     </div>
     <div class="case-stack">
-      {projectPatterns.map((pattern, index) => (
+      {projectPatterns.map((pattern) => (
         <article class="case-card">
-          <div class="case-index">{String(index + 1).padStart(2, '0')}</div>
           <div class="case-main">
             <span>{pattern.stage}</span>
             <h3>{pattern.title}</h3>
@@ -118,7 +114,7 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
     <div class="atlas-resume-grid atlas-resume-grid--editorial">
       <div>
         <div class="section-heading">
-          <h2>继续看深度</h2>
+          <h2>技术底稿</h2>
           <p>协议、边缘计算和产品工作流，是我处理复杂 AIoT 项目时反复回到的底层材料。</p>
         </div>
         <div class="reading-grid reading-grid--compact">
@@ -138,7 +134,7 @@ const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.dat
 
   <section class="section-block note-section">
     <div class="section-heading">
-      <h2>笔记</h2>
+      <h2>工作笔记</h2>
       <p>这些笔记记录的是我会反复查、反复补的工程和产品问题。</p>
     </div>
     <div class="note-grid note-grid--portfolio">

@@ -1,7 +1,7 @@
 export const heroProfile = {
   label: 'Product portfolio',
   title: '把设备、平台和现场问题做成产品',
-  summary: '7年+ AIoT / 智能硬件产品经验，做过平台、App、网关和设备上云。',
+  summary: '7年+ AIoT 产品经验，做过平台、App、网关和设备上云。',
   position: '我擅长把硬件约束、现场反馈和多团队协作收束成清晰版本，而不是只停在概念和路线图。',
   roleFit: ['DMP / CMP / FOTA', '消费级摄像机 App', '智能网关 / 离线控制', 'Modbus 设备上云']
 };

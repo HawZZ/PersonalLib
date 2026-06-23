@@ -1,17 +1,17 @@
 :root {
   color-scheme: light dark;
-  --ink: #161914;
-  --ink-soft: #4b5148;
-  --muted: #737c70;
-  --paper: #f4f0e7;
-  --surface: #fffaf1;
-  --surface-soft: #e8efe4;
+  --ink: #101612;
+  --ink-soft: #3f4b43;
+  --muted: #68746c;
+  --paper: #eef3ee;
+  --surface: #fbfcf8;
+  --surface-soft: #e3ece5;
   --line: rgba(22, 25, 20, 0.16);
   --line-strong: rgba(22, 25, 20, 0.32);
   --accent: #1d7658;
   --accent-strong: #185a45;
   --accent-soft: rgba(29, 118, 88, 0.12);
-  --amber: #a45d35;
+  --amber: #6f7b72;
   --shadow: 0 26px 90px rgba(22, 25, 20, 0.12);
   --soft-shadow: 0 12px 44px rgba(22, 25, 20, 0.08);
   --radius: 28px;
@@ -33,9 +33,9 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at 18% -4%, rgba(29, 118, 88, 0.18), transparent 34vw),
-    radial-gradient(circle at 88% 12%, rgba(164, 93, 53, 0.14), transparent 28vw),
-    linear-gradient(135deg, rgba(255, 250, 241, 0.84), rgba(232, 239, 228, 0.58)),
+    radial-gradient(circle at 18% -4%, rgba(29, 118, 88, 0.16), transparent 34vw),
+    radial-gradient(circle at 88% 12%, rgba(16, 22, 18, 0.08), transparent 28vw),
+    linear-gradient(135deg, rgba(251, 252, 248, 0.9), rgba(227, 236, 229, 0.62)),
     var(--paper);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 16px;
@@ -72,7 +72,7 @@ svg {
   padding: 8px 10px 8px 16px;
   border: 1px solid rgba(22, 25, 20, 0.1);
   border-radius: 999px;
-  background: rgba(255, 250, 241, 0.76);
+  background: rgba(251, 252, 248, 0.78);
   box-shadow: var(--soft-shadow);
   backdrop-filter: blur(18px);
 }
@@ -92,7 +92,7 @@ svg {
   height: 30px;
   border: 1px solid rgba(22, 25, 20, 0.16);
   border-radius: 999px;
-  background: radial-gradient(circle at 35% 30%, #fffaf1 0 18%, var(--accent) 20% 58%, var(--ink) 60% 100%);
+  background: radial-gradient(circle at 35% 30%, var(--surface) 0 18%, var(--accent) 20% 58%, var(--ink) 60% 100%);
   box-shadow: 0 14px 28px rgba(29, 118, 88, 0.18);
 }
 
@@ -217,15 +217,15 @@ main {
 .career-hero {
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.64fr);
   min-height: auto;
-  align-items: start;
-  padding: 32px 0 42px;
-  margin-top: 34px;
+  align-items: center;
+  padding: 18px 0 28px;
+  margin-top: 28px;
 }
 
 .career-hero .hero-copy h1 {
   max-width: 9.5em;
-  font-size: clamp(44px, 6.6vw, 86px);
-  line-height: 0.92;
+  font-size: clamp(42px, 5.6vw, 70px);
+  line-height: 0.95;
 }
 
 .hero-position {
@@ -238,13 +238,13 @@ main {
 
 .hero-profile-card {
   position: relative;
-  min-height: 430px;
-  padding: 34px;
+  min-height: 278px;
+  padding: 28px;
   border: 1px solid rgba(22, 25, 20, 0.12);
-  border-radius: 42px;
+  border-radius: var(--radius);
   background:
-    linear-gradient(160deg, rgba(255, 250, 241, 0.92), rgba(232, 239, 228, 0.82)),
-    radial-gradient(circle at 78% 12%, rgba(164, 93, 53, 0.15), transparent 32%);
+    linear-gradient(160deg, rgba(251, 252, 248, 0.92), rgba(227, 236, 229, 0.86)),
+    radial-gradient(circle at 78% 12%, rgba(29, 118, 88, 0.13), transparent 32%);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -258,7 +258,7 @@ main {
   height: 300px;
   border: 1px solid rgba(22, 25, 20, 0.1);
   border-radius: 45% 55% 50% 50%;
-  background: linear-gradient(135deg, rgba(29, 118, 88, 0.16), rgba(164, 93, 53, 0.12));
+  background: linear-gradient(135deg, rgba(29, 118, 88, 0.14), rgba(16, 22, 18, 0.08));
   transform: rotate(-12deg);
 }
 
@@ -294,19 +294,19 @@ main {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 10px;
-  margin-top: 28px;
+  gap: 8px;
+  margin-top: 22px;
 }
 
 .role-fit-list b {
   display: flex;
-  min-height: 48px;
+  min-height: 42px;
   align-items: center;
   padding: 0 14px;
-  border: 1px solid rgba(15, 118, 110, 0.16);
+  border: 1px solid rgba(29, 118, 88, 0.16);
   border-radius: 999px;
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.66);
+  background: rgba(251, 252, 248, 0.72);
   font-size: 15px;
 }
 
@@ -356,8 +356,8 @@ main {
 }
 
 .atlas-map__node--method circle {
-  fill: rgba(255, 247, 237, 0.96);
-  stroke: rgba(183, 121, 31, 0.46);
+  fill: rgba(251, 252, 248, 0.96);
+  stroke: rgba(29, 118, 88, 0.46);
 }
 
 .atlas-map__node text {
@@ -473,8 +473,7 @@ main {
   color: var(--accent-strong);
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .trait-strip h2 {
@@ -511,16 +510,16 @@ main {
   padding: 26px;
   border: 1px solid rgba(22, 25, 20, 0.12);
   border-radius: 32px;
-  background: rgba(255, 250, 241, 0.66);
+  background: rgba(251, 252, 248, 0.66);
   box-shadow: var(--soft-shadow);
 }
 
 .principle-card:nth-child(2n) {
-  background: rgba(232, 239, 228, 0.72);
+  background: rgba(227, 236, 229, 0.72);
 }
 
 .principle-card:nth-child(3n) {
-  background: linear-gradient(145deg, rgba(255, 250, 241, 0.72), rgba(29, 118, 88, 0.1));
+  background: linear-gradient(145deg, rgba(251, 252, 248, 0.72), rgba(29, 118, 88, 0.1));
 }
 
 .principle-card:first-child,
@@ -557,10 +556,10 @@ main {
 
 .case-card {
   display: grid;
-  grid-template-columns: 92px minmax(0, 0.92fr) minmax(320px, 0.72fr);
-  gap: 26px;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.72fr);
+  gap: 34px;
   align-items: start;
-  padding: 34px 0;
+  padding: 36px 0;
   border-top: 1px solid var(--line-strong);
 }
 
@@ -605,7 +604,7 @@ main {
 .case-side {
   padding: 24px;
   border-radius: 30px;
-  background: rgba(255, 250, 241, 0.68);
+  background: rgba(251, 252, 248, 0.68);
 }
 
 .case-side strong {
@@ -693,12 +692,12 @@ main {
   min-height: 520px;
   background:
     radial-gradient(circle at 78% 20%, rgba(29, 118, 88, 0.18), transparent 34%),
-    rgba(255, 250, 241, 0.82);
+    rgba(251, 252, 248, 0.82);
 }
 
 .cap-card--3 {
   color: var(--ink);
-  background: linear-gradient(145deg, rgba(232, 239, 228, 0.88), rgba(255, 250, 241, 0.7));
+  background: linear-gradient(145deg, rgba(227, 236, 229, 0.88), rgba(251, 252, 248, 0.7));
 }
 
 .cap-card--3 h3,
@@ -771,7 +770,7 @@ main {
 
 .cap-card--3 .chip-list b {
   color: var(--ink);
-  background: rgba(255, 250, 241, 0.66);
+  background: rgba(251, 252, 248, 0.66);
   border-color: rgba(29, 118, 88, 0.16);
 }
 
@@ -1489,7 +1488,7 @@ main {
   body {
     background:
       radial-gradient(circle at 8% 6%, rgba(94, 234, 212, 0.12), transparent 30vw),
-      radial-gradient(circle at 92% 18%, rgba(183, 121, 31, 0.08), transparent 26vw),
+      radial-gradient(circle at 92% 18%, rgba(29, 118, 88, 0.08), transparent 26vw),
       linear-gradient(90deg, rgba(237, 245, 242, 0.035) 1px, transparent 1px) 0 0 / 44px 44px,
       linear-gradient(rgba(237, 245, 242, 0.026) 1px, transparent 1px) 0 0 / 44px 44px,
       var(--paper);
