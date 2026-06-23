@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="从产品经理视角理解车端、路侧、云端协同，以及需求拆解和指标定义。"><meta name="theme-color" content="#0f766e"><title>车载边缘计算 - PersonalLib</title><link rel="stylesheet" href="../../styles/global.css"></head> <body> <div class="page-shell"> <header class="site-header" aria-label="站点导航"> <a class="brand" href="../../" aria-label="返回首页"> <span class="brand-mark" aria-hidden="true"></span> <span>PersonalLib</span> </a> <nav class="site-nav"> <a href="../../">首页</a><a href="../../project-patterns/">产品切面</a><a href="../../capabilities/">能力地图</a><a href="../../atlas/">知识地图</a><a href="../../notes/">笔记</a> </nav> </header> <main>  <article class="note-layout"> <header class="note-header"> <a href="../" class="back-link">返回笔记</a> <span>scenario</span> <h1>车载边缘计算</h1> <p>从产品经理视角理解车端、路侧、云端协同，以及需求拆解和指标定义。</p> <div class="tag-row"> <b>车载边缘</b><b>V2X</b><b>车队运营</b><b>产品架构</b> </div> </header> <nav class="note-toc" aria-label="本文目录"> <strong>目录</strong> <ol> <li class="toc-depth-2"> <a href="#1-产品经理为什么要学习车载边缘计算">1. 产品经理为什么要学习车载边缘计算</a> </li><li class="toc-depth-3"> <a href="#11-需要回答的问题">1.1 需要回答的问题</a> </li><li class="toc-depth-3"> <a href="#12-产品经理需要形成的判断">1.2 产品经理需要形成的判断</a> </li><li class="toc-depth-2"> <a href="#2-基础概念">2. 基础概念</a> </li><li class="toc-depth-3"> <a href="#21-什么是车载边缘计算">2.1 什么是车载边缘计算</a> </li><li class="toc-depth-3"> <a href="#22-与云计算端侧计算的区别">2.2 与云计算、端侧计算的区别</a> </li><li class="toc-depth-2"> <a href="#3-典型业务场景">3. 典型业务场景</a> </li><li class="toc-depth-3"> <a href="#31-智能驾驶与辅助驾驶">3.1 智能驾驶与辅助驾驶</a> </li><li class="toc-depth-3"> <a href="#32-车联网与-v2x">3.2 车联网与 V2X</a> </li><li class="toc-depth-3"> <a href="#33-商用车与车队运营">3.3 商用车与车队运营</a> </li><li class="toc-depth-3"> <a href="#34-车载网关与数据采集">3.4 车载网关与数据采集</a> </li><li class="toc-depth-3"> <a href="#35-智能座舱">3.5 智能座舱</a> </li><li class="toc-depth-2"> <a href="#4-用户和角色">4. 用户和角色</a> </li><li class="toc-depth-2"> <a href="#5-产品架构理解">5. 产品架构理解</a> </li><li class="toc-depth-3"> <a href="#51-车端到云端的典型架构">5.1 车端到云端的典型架构</a> </li><li class="toc-depth-3"> <a href="#52-车端模块">5.2 车端模块</a> </li><li class="toc-depth-3"> <a href="#53-云端模块">5.3 云端模块</a> </li><li class="toc-depth-2"> <a href="#6-需求拆解方法">6. 需求拆解方法</a> </li><li class="toc-depth-3"> <a href="#61-从场景开始而不是从技术开始">6.1 从场景开始，而不是从技术开始</a> </li><li class="toc-depth-3"> <a href="#62-需求模板">6.2 需求模板</a> </li><li class="toc-depth-3"> <a href="#63-示例需求智能灌溉车辆或农机边缘控制">6.3 示例需求：智能灌溉车辆或农机边缘控制</a> </li><li class="toc-depth-2"> <a href="#7-数据闭环">7. 数据闭环</a> </li><li class="toc-depth-3"> <a href="#71-数据类型">7.1 数据类型</a> </li><li class="toc-depth-3"> <a href="#72-数据闭环流程">7.2 数据闭环流程</a> </li><li class="toc-depth-3"> <a href="#73-产品经理要定义的数据规则">7.3 产品经理要定义的数据规则</a> </li><li class="toc-depth-2"> <a href="#8-核心指标">8. 核心指标</a> </li><li class="toc-depth-3"> <a href="#81-技术指标">8.1 技术指标</a> </li><li class="toc-depth-3"> <a href="#82-产品指标">8.2 产品指标</a> </li><li class="toc-depth-3"> <a href="#83-安全指标">8.3 安全指标</a> </li><li class="toc-depth-2"> <a href="#9-产品路线图">9. 产品路线图</a> </li><li class="toc-depth-3"> <a href="#91-mvp-阶段">9.1 MVP 阶段</a> </li><li class="toc-depth-3"> <a href="#92-平台化阶段">9.2 平台化阶段</a> </li><li class="toc-depth-3"> <a href="#93-智能化阶段">9.3 智能化阶段</a> </li><li class="toc-depth-2"> <a href="#10-风险和约束">10. 风险和约束</a> </li><li class="toc-depth-3"> <a href="#101-技术风险">10.1 技术风险</a> </li><li class="toc-depth-3"> <a href="#102-产品风险">10.2 产品风险</a> </li><li class="toc-depth-3"> <a href="#103-合规和安全风险">10.3 合规和安全风险</a> </li><li class="toc-depth-2"> <a href="#11-竞品和市场分析框架">11. 竞品和市场分析框架</a> </li><li class="toc-depth-2"> <a href="#12-学习路径">12. 学习路径</a> </li><li class="toc-depth-3"> <a href="#121-第一阶段建立概念地图">12.1 第一阶段：建立概念地图</a> </li><li class="toc-depth-3"> <a href="#122-第二阶段理解产品场景">12.2 第二阶段：理解产品场景</a> </li><li class="toc-depth-3"> <a href="#123-第三阶段理解数据和平台">12.3 第三阶段：理解数据和平台</a> </li><li class="toc-depth-3"> <a href="#124-第四阶段形成产品方案能力">12.4 第四阶段：形成产品方案能力</a> </li><li class="toc-depth-2"> <a href="#13-产品经理检查清单">13. 产品经理检查清单</a> </li><li class="toc-depth-2"> <a href="#14-一句话总结">14. 一句话总结</a> </li> </ol> </nav> <div class="prose"> <p>车载边缘计算不是单纯的“把算力放到车上”。从产品经理视角看，它是一套围绕 <strong>实时性、安全性、数据闭环、成本效率和体验稳定性</strong> 的产品系统。</p>
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="从产品经理视角理解车端、路侧、云端协同，以及需求拆解和指标定义。"><meta name="theme-color" content="#0f766e"><title>车载边缘计算 - PersonalLib</title><link rel="stylesheet" href="../../styles/global.css"></head> <body> <div class="page-shell"> <header class="site-header" aria-label="站点导航"> <a class="brand" href="../../" aria-label="返回首页"> <span class="brand-mark" aria-hidden="true"></span> <span>PersonalLib</span> </a> <nav class="site-nav"> <a href="../../">首页</a><a href="../../project-patterns/">产品切面</a><a href="../../capabilities/">能力地图</a><a href="../../atlas/">知识地图</a><a href="../../notes/">笔记</a> </nav> </header> <main>  <article class="note-layout"> <header class="note-header"> <a href="../" class="back-link">返回笔记</a> <span>scenario</span> <h1>车载边缘计算</h1> <p>从产品经理视角理解车端、路侧、云端协同，以及需求拆解和指标定义。</p> <div class="tag-row"> <b>车载边缘</b><b>V2X</b><b>车队运营</b><b>产品架构</b> </div> </header> <nav class="note-toc" aria-label="本文目录"> <strong>目录</strong> <span class="note-toc__current" data-current-section>当前：1. 产品经理为什么要学习车载边缘计算</span> <ol> <li class="toc-depth-2"> <a href="#1-产品经理为什么要学习车载边缘计算" data-toc-link data-slug="1-产品经理为什么要学习车载边缘计算">1. 产品经理为什么要学习车载边缘计算</a> </li><li class="toc-depth-3"> <a href="#11-需要回答的问题" data-toc-link data-slug="11-需要回答的问题">1.1 需要回答的问题</a> </li><li class="toc-depth-3"> <a href="#12-产品经理需要形成的判断" data-toc-link data-slug="12-产品经理需要形成的判断">1.2 产品经理需要形成的判断</a> </li><li class="toc-depth-2"> <a href="#2-基础概念" data-toc-link data-slug="2-基础概念">2. 基础概念</a> </li><li class="toc-depth-3"> <a href="#21-什么是车载边缘计算" data-toc-link data-slug="21-什么是车载边缘计算">2.1 什么是车载边缘计算</a> </li><li class="toc-depth-3"> <a href="#22-与云计算端侧计算的区别" data-toc-link data-slug="22-与云计算端侧计算的区别">2.2 与云计算、端侧计算的区别</a> </li><li class="toc-depth-2"> <a href="#3-典型业务场景" data-toc-link data-slug="3-典型业务场景">3. 典型业务场景</a> </li><li class="toc-depth-3"> <a href="#31-智能驾驶与辅助驾驶" data-toc-link data-slug="31-智能驾驶与辅助驾驶">3.1 智能驾驶与辅助驾驶</a> </li><li class="toc-depth-3"> <a href="#32-车联网与-v2x" data-toc-link data-slug="32-车联网与-v2x">3.2 车联网与 V2X</a> </li><li class="toc-depth-3"> <a href="#33-商用车与车队运营" data-toc-link data-slug="33-商用车与车队运营">3.3 商用车与车队运营</a> </li><li class="toc-depth-3"> <a href="#34-车载网关与数据采集" data-toc-link data-slug="34-车载网关与数据采集">3.4 车载网关与数据采集</a> </li><li class="toc-depth-3"> <a href="#35-智能座舱" data-toc-link data-slug="35-智能座舱">3.5 智能座舱</a> </li><li class="toc-depth-2"> <a href="#4-用户和角色" data-toc-link data-slug="4-用户和角色">4. 用户和角色</a> </li><li class="toc-depth-2"> <a href="#5-产品架构理解" data-toc-link data-slug="5-产品架构理解">5. 产品架构理解</a> </li><li class="toc-depth-3"> <a href="#51-车端到云端的典型架构" data-toc-link data-slug="51-车端到云端的典型架构">5.1 车端到云端的典型架构</a> </li><li class="toc-depth-3"> <a href="#52-车端模块" data-toc-link data-slug="52-车端模块">5.2 车端模块</a> </li><li class="toc-depth-3"> <a href="#53-云端模块" data-toc-link data-slug="53-云端模块">5.3 云端模块</a> </li><li class="toc-depth-2"> <a href="#6-需求拆解方法" data-toc-link data-slug="6-需求拆解方法">6. 需求拆解方法</a> </li><li class="toc-depth-3"> <a href="#61-从场景开始而不是从技术开始" data-toc-link data-slug="61-从场景开始而不是从技术开始">6.1 从场景开始，而不是从技术开始</a> </li><li class="toc-depth-3"> <a href="#62-需求模板" data-toc-link data-slug="62-需求模板">6.2 需求模板</a> </li><li class="toc-depth-3"> <a href="#63-示例需求智能灌溉车辆或农机边缘控制" data-toc-link data-slug="63-示例需求智能灌溉车辆或农机边缘控制">6.3 示例需求：智能灌溉车辆或农机边缘控制</a> </li><li class="toc-depth-2"> <a href="#7-数据闭环" data-toc-link data-slug="7-数据闭环">7. 数据闭环</a> </li><li class="toc-depth-3"> <a href="#71-数据类型" data-toc-link data-slug="71-数据类型">7.1 数据类型</a> </li><li class="toc-depth-3"> <a href="#72-数据闭环流程" data-toc-link data-slug="72-数据闭环流程">7.2 数据闭环流程</a> </li><li class="toc-depth-3"> <a href="#73-产品经理要定义的数据规则" data-toc-link data-slug="73-产品经理要定义的数据规则">7.3 产品经理要定义的数据规则</a> </li><li class="toc-depth-2"> <a href="#8-核心指标" data-toc-link data-slug="8-核心指标">8. 核心指标</a> </li><li class="toc-depth-3"> <a href="#81-技术指标" data-toc-link data-slug="81-技术指标">8.1 技术指标</a> </li><li class="toc-depth-3"> <a href="#82-产品指标" data-toc-link data-slug="82-产品指标">8.2 产品指标</a> </li><li class="toc-depth-3"> <a href="#83-安全指标" data-toc-link data-slug="83-安全指标">8.3 安全指标</a> </li><li class="toc-depth-2"> <a href="#9-产品路线图" data-toc-link data-slug="9-产品路线图">9. 产品路线图</a> </li><li class="toc-depth-3"> <a href="#91-mvp-阶段" data-toc-link data-slug="91-mvp-阶段">9.1 MVP 阶段</a> </li><li class="toc-depth-3"> <a href="#92-平台化阶段" data-toc-link data-slug="92-平台化阶段">9.2 平台化阶段</a> </li><li class="toc-depth-3"> <a href="#93-智能化阶段" data-toc-link data-slug="93-智能化阶段">9.3 智能化阶段</a> </li><li class="toc-depth-2"> <a href="#10-风险和约束" data-toc-link data-slug="10-风险和约束">10. 风险和约束</a> </li><li class="toc-depth-3"> <a href="#101-技术风险" data-toc-link data-slug="101-技术风险">10.1 技术风险</a> </li><li class="toc-depth-3"> <a href="#102-产品风险" data-toc-link data-slug="102-产品风险">10.2 产品风险</a> </li><li class="toc-depth-3"> <a href="#103-合规和安全风险" data-toc-link data-slug="103-合规和安全风险">10.3 合规和安全风险</a> </li><li class="toc-depth-2"> <a href="#11-竞品和市场分析框架" data-toc-link data-slug="11-竞品和市场分析框架">11. 竞品和市场分析框架</a> </li><li class="toc-depth-2"> <a href="#12-学习路径" data-toc-link data-slug="12-学习路径">12. 学习路径</a> </li><li class="toc-depth-3"> <a href="#121-第一阶段建立概念地图" data-toc-link data-slug="121-第一阶段建立概念地图">12.1 第一阶段：建立概念地图</a> </li><li class="toc-depth-3"> <a href="#122-第二阶段理解产品场景" data-toc-link data-slug="122-第二阶段理解产品场景">12.2 第二阶段：理解产品场景</a> </li><li class="toc-depth-3"> <a href="#123-第三阶段理解数据和平台" data-toc-link data-slug="123-第三阶段理解数据和平台">12.3 第三阶段：理解数据和平台</a> </li><li class="toc-depth-3"> <a href="#124-第四阶段形成产品方案能力" data-toc-link data-slug="124-第四阶段形成产品方案能力">12.4 第四阶段：形成产品方案能力</a> </li><li class="toc-depth-2"> <a href="#13-产品经理检查清单" data-toc-link data-slug="13-产品经理检查清单">13. 产品经理检查清单</a> </li><li class="toc-depth-2"> <a href="#14-一句话总结" data-toc-link data-slug="14-一句话总结">14. 一句话总结</a> </li> </ol> </nav> <div class="prose"> <p>车载边缘计算不是单纯的“把算力放到车上”。从产品经理视角看，它是一套围绕 <strong>实时性、安全性、数据闭环、成本效率和体验稳定性</strong> 的产品系统。</p>
 <p>这篇笔记的目标不是替代算法工程师或系统架构师，而是帮助产品经理理解：车载边缘计算为什么存在、服务哪些场景、如何拆需求、如何定义指标、如何设计产品路线图，以及在跨团队协作时该问哪些关键问题。</p>
 <section class="knowledge-visual architecture-map">
   <div>
@@ -768,4 +768,102 @@
 <li>是否能支撑后续规模化复制？</li>
 </ul>
 <h2 id="14-一句话总结">14. 一句话总结</h2>
-<p>车载边缘计算对产品经理的意义，不是多一个技术名词，而是多一种产品设计方法：把实时、安全、成本、体验和数据闭环放在同一张图里，明确哪些事情必须在车端发生，哪些事情适合交给云端，哪些事情需要通过平台长期运营。</p> </div> </article>  </main> <footer class="site-footer"> <div> <strong>AIoT Product Portfolio</strong> <p>设备平台、智能硬件 App、边缘智能、产品工作流。</p> </div> <div class="footer-links"> <a href="https://github.com/HawZZ">GitHub Profile</a> <a href="https://github.com/HawZZ/PersonalLib">Repository</a> </div> </footer> </div> </body></html>
+<p>车载边缘计算对产品经理的意义，不是多一个技术名词，而是多一种产品设计方法：把实时、安全、成本、体验和数据闭环放在同一张图里，明确哪些事情必须在车端发生，哪些事情适合交给云端，哪些事情需要通过平台长期运营。</p> </div> </article> <script>
+    (() => {
+      const toc = document.querySelector('.note-toc');
+      const prose = document.querySelector('.prose');
+      if (!toc || !prose) return;
+
+      const list = toc.querySelector('ol');
+      const links = Array.from(toc.querySelectorAll('[data-toc-link]'));
+      const currentLabel = toc.querySelector('[data-current-section]');
+      const headings = links
+        .map((link) => {
+          const slug = link.getAttribute('data-slug');
+          if (!slug) return null;
+          const heading = document.getElementById(slug);
+          return heading ? { heading, link } : null;
+        })
+        .filter(Boolean);
+
+      if (!headings.length || !list) return;
+
+      let activeId = '';
+
+      const keepActiveLinkVisible = (link) => {
+        const listRect = list.getBoundingClientRect();
+        const linkRect = link.getBoundingClientRect();
+        const topGap = 24;
+        const bottomGap = 24;
+
+        if (linkRect.top < listRect.top + topGap || linkRect.bottom > listRect.bottom - bottomGap) {
+          const targetTop = list.scrollTop + (linkRect.top - listRect.top) - list.clientHeight / 2 + link.clientHeight / 2;
+          list.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
+        }
+      };
+
+      const setActive = (item) => {
+        if (!item || item.heading.id === activeId) return;
+        activeId = item.heading.id;
+
+        links.forEach((link) => {
+          link.classList.remove('is-active');
+          link.removeAttribute('aria-current');
+        });
+
+        item.link.classList.add('is-active');
+        item.link.setAttribute('aria-current', 'true');
+
+        if (currentLabel) {
+          currentLabel.textContent = `当前：${item.link.textContent.trim()}`;
+        }
+
+        keepActiveLinkVisible(item.link);
+      };
+
+      const pickCurrentHeading = () => {
+        const offset = 136;
+        const pageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        let current = headings[0];
+
+        if (pageBottom) {
+          return headings[headings.length - 1];
+        }
+
+        for (const item of headings) {
+          if (item.heading.getBoundingClientRect().top <= offset) {
+            current = item;
+          } else {
+            break;
+          }
+        }
+
+        return current;
+      };
+
+      const updateActiveHeading = () => {
+        window.requestAnimationFrame(() => setActive(pickCurrentHeading()));
+      };
+
+      const observer = new IntersectionObserver(updateActiveHeading, {
+        root: null,
+        rootMargin: '-128px 0px -70% 0px',
+        threshold: [0, 1]
+      });
+
+      headings.forEach((item) => observer.observe(item.heading));
+
+      links.forEach((link) => {
+        link.addEventListener('click', () => {
+          const item = headings.find((entry) => entry.link === link);
+          setActive(item);
+        });
+      });
+
+      window.addEventListener('hashchange', updateActiveHeading);
+      window.addEventListener('resize', updateActiveHeading, { passive: true });
+
+      updateActiveHeading();
+      window.setTimeout(updateActiveHeading, 120);
+    })();
+  </script>  </main> <footer class="site-footer"> <div> <strong>AIoT Product Portfolio</strong> <p>设备平台、智能硬件 App、边缘智能、产品工作流。</p> </div> <div class="footer-links"> <a href="https://github.com/HawZZ">GitHub Profile</a> <a href="https://github.com/HawZZ/PersonalLib">Repository</a> </div> </footer> </div> </body></html>

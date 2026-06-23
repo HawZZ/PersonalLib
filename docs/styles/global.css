@@ -1129,9 +1129,11 @@ main {
   top: 110px;
   grid-area: toc;
   max-height: calc(100dvh - 192px);
+  display: flex;
+  flex-direction: column;
   padding: 18px 0 18px 18px;
   border-left: 1px solid var(--line-strong);
-  overflow: auto;
+  overflow: hidden;
 }
 
 .note-toc strong {
@@ -1141,12 +1143,27 @@ main {
   font-size: 14px;
 }
 
+.note-toc__current {
+  display: block;
+  margin: 0 16px 14px 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(29, 118, 88, 0.16);
+  border-radius: var(--radius-sm);
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
 .note-toc ol {
   display: grid;
   gap: 8px;
+  min-height: 0;
   margin: 0;
-  padding: 0;
+  padding: 0 12px 0 0;
   list-style: none;
+  overflow: auto;
 }
 
 .note-toc a {
@@ -1162,6 +1179,15 @@ main {
 .note-toc a:focus-visible {
   color: var(--accent-strong);
   transform: translateX(2px);
+}
+
+.note-toc a.is-active,
+.note-toc a[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 880;
+  box-shadow: inset 2px 0 0 var(--accent-strong);
+  padding-left: 8px;
+  transform: translateX(-8px);
 }
 
 .toc-depth-3 {
