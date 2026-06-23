@@ -1,24 +1,24 @@
 <section class="home-hero">
   <div class="home-hero__copy">
-    <p class="home-kicker">PersonalLib / Knowledge Base</p>
-    <h1>HawZZ 的个人主页</h1>
-    <p class="home-lede">把技术学习、项目经验和工作思考沉淀成一个可以长期生长的知识库。</p>
+    <p class="home-kicker">PersonalLib / Product Knowledge Base</p>
+    <h1>HawZZ 的产品与技术知识库</h1>
+    <p class="home-lede">沉淀物联网平台、边缘计算、工业通信和产品方法论，形成可检索、可复用的长期资料。</p>
     <div class="home-actions">
-      <a class="home-action home-action--primary" href="#/README?id=知识库地图">浏览知识库</a>
-      <a class="home-action home-action--secondary" href="https://github.com/HawZZ/PersonalLib">查看仓库</a>
+      <a class="home-action home-action--primary" href="#/README?id=知识库地图">浏览地图</a>
+      <a class="home-action home-action--secondary" href="#/AI_PM_Workflow">产品方法</a>
     </div>
   </div>
   <div class="home-hero__visual">
     <img src="https://avatars.githubusercontent.com/u/36140131?s=240&v=4" alt="HawZZ GitHub avatar">
-    <div class="home-hero__badge">Edge Computing / V2X / Product Notes</div>
+    <div class="home-hero__badge">IoT Platform / Edge Computing / Product Notes</div>
   </div>
 </section>
 
 <div class="home-tags">
-  <span>车载边缘计算</span>
+  <span>产品方法论</span>
+  <span>物联网平台</span>
+  <span>边缘计算</span>
   <span>工业通信</span>
-  <span>系统设计</span>
-  <span>工作复盘</span>
 </div>
 
 ## 关于我
@@ -80,9 +80,34 @@
 
 <p class="profile-note">公开页面已隐藏手机号、邮箱、具体地址、精确客户信息和部分商业敏感细节。教育背景保留为：德国应用技术大学硕士、国内 211 高校本科。</p>
 
+## 推荐阅读路径
+
+<div class="reading-path">
+  <a href="#/AI_PM_Workflow">
+    <strong>产品判断路径</strong>
+    <span>从事实采集、攻防共识到 PRD 与验收回写，适合处理复杂需求。</span>
+  </a>
+  <a href="#/EC_on_Viechle">
+    <strong>技术主题路径</strong>
+    <span>从边缘计算概念进入车载场景，再延展到 V2X 和系统特征。</span>
+  </a>
+  <a href="#/Knowledge_Base_Design">
+    <strong>知识库维护路径</strong>
+    <span>理解这个站点如何组织资料、控制信息层级，并避免变成资料堆。</span>
+  </a>
+</div>
+
 ## 知识库地图
 
 <div class="knowledge-grid">
+  <a class="knowledge-card knowledge-card--workflow" href="#/AI_PM_Workflow">
+    <strong>AI 辅助产品经理工作流</strong>
+    <span>从页面事实、项目源码、攻防共识、交互原型到 PRD 沉淀，整理一套可复用的产品需求闭环。</span>
+  </a>
+  <a class="knowledge-card knowledge-card--method" href="#/Knowledge_Base_Design">
+    <strong>知识库设计原则</strong>
+    <span>用清晰分组、直接命名、稳定链接和克制表达，让个人知识库更像工作台而不是资料堆。</span>
+  </a>
   <a class="knowledge-card knowledge-card--edge" href="#/EC_on_Viechle">
     <strong>车载边缘计算知识</strong>
     <span>从基础概念、硬件平台、传感器数据到 V2X 协同，整理车载场景下的边缘计算体系。</span>
@@ -98,10 +123,6 @@
   <a class="knowledge-card knowledge-card--vehicle" href="#/VECAttr">
     <strong>车载边缘计算的特点</strong>
     <span>关注实时性、可靠性、多传感器融合、低功耗和车载系统集成等关键特征。</span>
-  </a>
-  <a class="knowledge-card" href="#/AI_PM_Workflow">
-    <strong>AI 辅助产品经理工作流</strong>
-    <span>从页面事实、项目源码、攻防共识、交互原型到 PRD 沉淀，整理一套可复用的产品需求闭环。</span>
   </a>
 </div>
 
