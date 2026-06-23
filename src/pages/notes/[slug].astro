@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({ params: { slug: note.slug }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { Content, headings } = await render(note);
+const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 4);
+---
+<BaseLayout title={`${note.data.title} - PersonalLib`} description={note.data.summary} rootPrefix="../../">
+  <article class="note-layout">
+    <header class="note-header">
+      <a href="../" class="back-link">返回笔记</a>
+      <span>{note.data.type}</span>
+      <h1>{note.data.title}</h1>
+      <p>{note.data.summary}</p>
+      <div class="tag-row">
+        {note.data.tags.map((tag) => <b>{tag}</b>)}
+      </div>
+    </header>
+    {tocItems.length > 0 && (
+      <nav class="note-toc" aria-label="本文目录">
+        <strong>目录</strong>
+        <span class="note-toc__current" data-current-section>当前：{tocItems[0].text}</span>
+        <ol>
+          {tocItems.map((heading) => (
+            <li class={`toc-depth-${heading.depth}`}>
+              <a href={`#${heading.slug}`} data-toc-link data-slug={heading.slug}>{heading.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+  <script is:inline>
+    (() => {
+      const toc = document.querySelector('.note-toc');
+      const prose = document.querySelector('.prose');
+      if (!toc || !prose) return;
+
+      const list = toc.querySelector('ol');
+      const links = Array.from(toc.querySelectorAll('[data-toc-link]'));
+      const currentLabel = toc.querySelector('[data-current-section]');
+      const headings = links
+        .map((link) => {
+          const slug = link.getAttribute('data-slug');
+          if (!slug) return null;
+          const heading = document.getElementById(slug);
+          return heading ? { heading, link } : null;
+        })
+        .filter(Boolean);
+
+      if (!headings.length || !list) return;
+
+      let activeId = '';
+
+      const keepActiveLinkVisible = (link) => {
+        const listRect = list.getBoundingClientRect();
+        const linkRect = link.getBoundingClientRect();
+        const topGap = 24;
+        const bottomGap = 24;
+
+        if (linkRect.top < listRect.top + topGap || linkRect.bottom > listRect.bottom - bottomGap) {
+          const targetTop = list.scrollTop + (linkRect.top - listRect.top) - list.clientHeight / 2 + link.clientHeight / 2;
+          list.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' });
+        }
+      };
+
+      const setActive = (item) => {
+        if (!item || item.heading.id === activeId) return;
+        activeId = item.heading.id;
+
+        links.forEach((link) => {
+          link.classList.remove('is-active');
+          link.removeAttribute('aria-current');
+        });
+
+        item.link.classList.add('is-active');
+        item.link.setAttribute('aria-current', 'true');
+
+        if (currentLabel) {
+          currentLabel.textContent = `当前：${item.link.textContent.trim()}`;
+        }
+
+        keepActiveLinkVisible(item.link);
+      };
+
+      const pickCurrentHeading = () => {
+        const offset = 136;
+        const pageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        let current = headings[0];
+
+        if (pageBottom) {
+          return headings[headings.length - 1];
+        }
+
+        for (const item of headings) {
+          if (item.heading.getBoundingClientRect().top <= offset) {
+            current = item;
+          } else {
+            break;
+          }
+        }
+
+        return current;
+      };
+
+      const updateActiveHeading = () => {
+        window.requestAnimationFrame(() => setActive(pickCurrentHeading()));
+      };
+
+      const observer = new IntersectionObserver(updateActiveHeading, {
+        root: null,
+        rootMargin: '-128px 0px -70% 0px',
+        threshold: [0, 1]
+      });
+
+      headings.forEach((item) => observer.observe(item.heading));
+
+      links.forEach((link) => {
+        link.addEventListener('click', () => {
+          const item = headings.find((entry) => entry.link === link);
+          setActive(item);
+        });
+      });
+
+      window.addEventListener('hashchange', updateActiveHeading);
+      window.addEventListener('resize', updateActiveHeading, { passive: true });
+
+      updateActiveHeading();
+      window.setTimeout(updateActiveHeading, 120);
+    })();
+  </script>
+</BaseLayout>

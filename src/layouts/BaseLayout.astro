@@ -1,0 +1,53 @@
+---
+const {
+  title = 'Personal Knowledge Atlas',
+  description = '产品知识地图，整理物联网平台、边缘智能、工业协议和 AI 产品工作流。',
+  rootPrefix = './'
+} = Astro.props;
+
+const toRoot = (path = '') => `${rootPrefix}${path}`;
+const nav = [
+  { href: toRoot(''), label: '首页' },
+  { href: toRoot('project-patterns/'), label: '产品切面' },
+  { href: toRoot('capabilities/'), label: '能力地图' },
+  { href: toRoot('atlas/'), label: '知识地图' },
+  { href: toRoot('notes/'), label: '笔记' }
+];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0f766e" />
+    <title>{title}</title>
+    <link rel="stylesheet" href={toRoot('styles/global.css')} />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" aria-label="站点导航">
+        <a class="brand" href={toRoot('')} aria-label="返回首页">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>PersonalLib</span>
+        </a>
+        <nav class="site-nav">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div>
+          <strong>AIoT Product Portfolio</strong>
+          <p>设备平台、智能硬件 App、边缘智能、产品工作流。</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/HawZZ">GitHub Profile</a>
+          <a href="https://github.com/HawZZ/PersonalLib">Repository</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

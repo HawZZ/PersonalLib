@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KnowledgeMap from '../components/KnowledgeMap.astro';
+import {
+  heroProfile,
+  workTraits,
+  productPrinciples,
+  capabilities,
+  projectPatterns,
+  readingPaths
+} from '../data/knowledge';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="AIoT Product Portfolio - PersonalLib" description="AIoT 与智能硬件产品经理作品集，覆盖设备平台、消费级 IoT App、边缘智能和产品工作流。">
+  <section class="hero-grid career-hero section-tight">
+    <div class="hero-copy">
+      <p class="eyebrow">{heroProfile.label}</p>
+      <h1>{heroProfile.title}</h1>
+      <p class="hero-lede">{heroProfile.summary}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#selected-work">看项目</a>
+        <a class="button button-secondary" href="#work-style">看工作方式</a>
+      </div>
+    </div>
+    <aside class="hero-profile-card hero-profile-card--editorial" aria-label="产品经验摘要">
+      <span>Product surfaces</span>
+      <div class="role-fit-list">
+        {heroProfile.roleFit.map((role) => <b>{role}</b>)}
+      </div>
+    </aside>
+  </section>
+
+  <section class="trait-strip" id="work-style" aria-label="工作特质">
+    {workTraits.map((item) => (
+      <article>
+        <span>{item.title}</span>
+        <h2>{item.headline}</h2>
+        <p>{item.detail}</p>
+      </article>
+    ))}
+  </section>
+
+  <section class="section-block principle-section">
+    <div class="section-heading section-heading--narrow">
+      <h2>产品判断</h2>
+      <p>我更关心一个能力怎么进入版本、怎么被团队理解、最后怎么被用户或现场验证。</p>
+    </div>
+    <div class="principle-grid">
+      {productPrinciples.map((item) => (
+        <article class="principle-card">
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <div class="chip-list">
+            {item.proof.map((proof) => <b>{proof}</b>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block" id="selected-work">
+    <div class="section-heading section-heading--narrow">
+      <h2>做过的产品切面</h2>
+      <p>这些项目都不是单点功能。硬件、嵌入式、云端、App、算法、测试和交付都要一起动。</p>
+    </div>
+    <div class="case-stack">
+      {projectPatterns.map((pattern) => (
+        <article class="case-card">
+          <div class="case-main">
+            <span>{pattern.stage}</span>
+            <h3>{pattern.title}</h3>
+            <p>{pattern.summary}</p>
+            <div class="flow-row" aria-label={`${pattern.title}流程`}>
+              {pattern.flow.map((step) => <span>{step}</span>)}
+            </div>
+          </div>
+          <div class="case-side">
+            <strong>{pattern.role}</strong>
+            <ul>
+              {pattern.evidence.map((item) => <li>{item}</li>)}
+            </ul>
+            <p>{pattern.lesson}</p>
+            <div class="tag-row tag-row--plain">
+              {pattern.focus.map((item) => <b>{item}</b>)}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block capability-section">
+    <div class="section-heading">
+      <h2>能力沉淀</h2>
+      <p>项目做完之后，能留下来的不是一份 PRD，而是下一次还能复用的判断框架。</p>
+    </div>
+    <div class="capability-grid capability-grid--portfolio">
+      {capabilities.map((item, index) => (
+        <article class={`cap-card cap-card--${index + 1}`}>
+          <span>{item.signal}</span>
+          <h3>{item.title}</h3>
+          <p>{item.summary}</p>
+          <div class="chip-list">
+            {item.facets.map((facet) => <b>{facet}</b>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block atlas-resume-section">
+    <div class="atlas-resume-grid atlas-resume-grid--editorial">
+      <div>
+        <div class="section-heading">
+          <h2>技术底稿</h2>
+          <p>协议、边缘计算和产品工作流，是我处理复杂 AIoT 项目时反复回到的底层材料。</p>
+        </div>
+        <div class="reading-grid reading-grid--compact">
+          {readingPaths.map((path) => (
+            <a class="reading-card" href={path.href}>
+              <strong>{path.title}</strong>
+              <span>{path.summary}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="hero-visual hero-visual--compact hero-visual--soft">
+        <KnowledgeMap />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block note-section">
+    <div class="section-heading">
+      <h2>工作笔记</h2>
+      <p>这些笔记记录的是我会反复查、反复补的工程和产品问题。</p>
+    </div>
+    <div class="note-grid note-grid--portfolio">
+      {notes.map((note) => (
+        <a class="note-card" href={`./notes/${note.slug}/`}>
+          <span>{note.data.type}</span>
+          <h3>{note.data.title}</h3>
+          <p>{note.data.summary}</p>
+          <div class="tag-row">
+            {note.data.tags.slice(0, 3).map((tag) => <b>{tag}</b>)}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

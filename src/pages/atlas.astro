@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import KnowledgeMap from '../components/KnowledgeMap.astro';
+import { knowledgeNodes } from '../data/knowledge';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="知识地图 - PersonalLib" rootPrefix="../">
+  <section class="page-hero">
+    <p class="eyebrow">Atlas</p>
+    <h1>知识地图</h1>
+    <p>这张地图不是展示所有内容，而是展示知识库的主要关系：平台、协议、边缘场景和产品方法如何互相支撑。</p>
+  </section>
+
+  <section class="atlas-page-grid">
+    <div class="atlas-page-visual">
+      <KnowledgeMap />
+    </div>
+    <div class="atlas-node-list">
+      {knowledgeNodes.map((node) => (
+        <article>
+          <span>{node.type}</span>
+          <strong>{node.label}</strong>
+          <p>关联节点：{node.links.map((link) => knowledgeNodes.find((item) => item.id === link)?.label).filter(Boolean).join(' / ')}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-heading">
+      <h2>连接到具体笔记</h2>
+      <p>地图负责导航，笔记负责深度。</p>
+    </div>
+    <div class="note-grid">
+      {notes.map((note) => (
+        <a class="note-card" href={`../notes/${note.slug}/`}>
+          <span>{note.data.type}</span>
+          <h3>{note.data.title}</h3>
+          <p>{note.data.summary}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

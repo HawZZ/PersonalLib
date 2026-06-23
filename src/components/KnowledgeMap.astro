@@ -1,0 +1,21 @@
+---
+import { knowledgeNodes } from '../data/knowledge';
+
+const nodeById = Object.fromEntries(knowledgeNodes.map((node) => [node.id, node]));
+const links = knowledgeNodes.flatMap((node) =>
+  node.links
+    .filter((target) => node.id < target && nodeById[target])
+    .map((target) => ({ from: node, to: nodeById[target] }))
+);
+---
+<svg class="atlas-map" viewBox="0 0 100 100" role="img" aria-label="知识节点关系图">
+  {links.map(({ from, to }) => (
+    <line class="atlas-map__link" x1={from.x} y1={from.y} x2={to.x} y2={to.y} />
+  ))}
+  {knowledgeNodes.map((node) => (
+    <g class={`atlas-map__node atlas-map__node--${node.type}`}>
+      <circle cx={node.x} cy={node.y} r="8" />
+      <text x={node.x} y={node.y + 15} text-anchor="middle">{node.label}</text>
+    </g>
+  ))}
+</svg>
